@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="search_bar" layoutX="170.0" layoutY="31.0" prefHeight="35.0" prefWidth="297.0" promptText="ค้นหา">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="search" layoutX="476.0" layoutY="30.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="38.0" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@loupe.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="history" layoutX="526.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: #2e64a2;" styleClass="history">
+         <graphic>
+            <ImageView fx:id="order_history" fitHeight="34.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@clockw.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="103.0" fitWidth="152.0" layoutX="26.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="F_em_name" alignment="CENTER" layoutX="26.0" layoutY="144.0" prefHeight="23.0" prefWidth="130.0" style="-fx-background-color: white;" text="Account_Name" textAlignment="CENTER" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="p_add_btn" layoutX="170.0" layoutY="82.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: white;" text="เพิ่มสินค้า" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="s_add_btn" layoutX="308.0" layoutY="82.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: white;" text="เพิ่มโกดัง" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="t_edit_btn" layoutX="446.0" layoutY="82.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: white;" text="เพิ่ม/ลบประเภท" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </Button>
+      <ScrollPane layoutX="169.0" layoutY="130.0" prefHeight="240.0" prefWidth="409.0">
+         <content>
+            <TableView fx:id="p_show" prefHeight="238.0" prefWidth="407.0">
+              <columns>
+                <TableColumn prefWidth="201.0" text="ชื่อสินค้า" />
+                <TableColumn prefWidth="74.66668701171875" text="โกดัง" />
+                  <TableColumn prefWidth="61.6666259765625" text="จำนวน" />
+                  <TableColumn prefWidth="69.3333740234375" text="รายละเอียด" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Label fx:id="logout" layoutX="67.0" layoutY="167.0" prefHeight="23.0" prefWidth="50.0" style="-fx-text-alignment: Center;" text="ลงชื่อออก" textAlignment="CENTER" textFill="WHITE" underline="true">
+         <font>
+            <Font name="TH SarabunPSK Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Pane layoutX="26.0" layoutY="197.0" prefHeight="173.0" prefWidth="130.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="7.0" layoutY="8.0" text="เรียงตาม">
+               <font>
+                  <Font name="TH SarabunPSK Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="26.0" text="จำนวนในคลัง">
+               <font>
+                  <Font name="TH SarabunPSK Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="95.0" text="ตัวอักษร">
+               <font>
+                  <Font name="TH SarabunPSK Bold" size="16.0" />
+               </font>
+            </Label>
+            <CheckBox layoutX="38.0" layoutY="45.0" mnemonicParsing="false" text="น้อย-มาก">
+               <font>
+                  <Font name="TH SarabunPSK Bold" size="16.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="38.0" layoutY="71.0" mnemonicParsing="false" text="มาก-มาก">
+               <font>
+                  <Font name="TH SarabunPSK Bold" size="16.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="38.0" layoutY="113.0" mnemonicParsing="false" text="ก-ฮ / a-z">
+               <font>
+                  <Font name="TH SarabunPSK Bold" size="16.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="38.0" layoutY="139.0" mnemonicParsing="false" text="ฮ-ก / z-a">
+               <font>
+                  <Font name="TH SarabunPSK Bold" size="16.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

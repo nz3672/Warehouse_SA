@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditProductController">
+   <children>
+      <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="777.0">
+               <children>
+                  <HBox prefHeight="427.0" prefWidth="777.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="427.0" prefWidth="260.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label layoutX="90.0" layoutY="18.0" text="ประเภท" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="f_p_save_date" layoutX="76.0" layoutY="378.0" />
+                              <Label layoutX="14.0" layoutY="371.0" text="วันที่" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton fx:id="f_p_type1" layoutX="29.0" layoutY="51.0" mnemonicParsing="false" text="ข้อต่อ" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_type2" layoutX="29.0" layoutY="91.0" mnemonicParsing="false" text="สปริง-สกรู" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_type3" layoutX="30.0" layoutY="131.0" mnemonicParsing="false" text="หมวดคัตติ้งทูลส์" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_type4" layoutX="30.0" layoutY="172.0" mnemonicParsing="false" text="หมวดเครื่องมือขัด" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_type5" layoutX="30.0" layoutY="212.0" mnemonicParsing="false" text="แม่เหล็กและเครื่องมือวัด" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_type6" layoutX="30.0" layoutY="252.0" mnemonicParsing="false" text="อะไหล่แม่พิมพ์ปั๊มโลหะ" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_type7" layoutX="30.0" layoutY="292.0" mnemonicParsing="false" text="อะไหล่แม่พิมพ์พลาสติก" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="427.0" prefWidth="260.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label layoutX="77.0" layoutY="18.0" text="โกดังจัดเก็บ" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton fx:id="f_p_inventory1" layoutX="23.0" layoutY="58.0" mnemonicParsing="false" text="โกดัง 1" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_inventory2" layoutX="23.0" layoutY="98.0" mnemonicParsing="false" text="โกดัง 2" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="f_p_inventory3" layoutX="24.0" layoutY="138.0" mnemonicParsing="false" text="โกดัง 3" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="427.0" prefWidth="260.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label layoutX="12.0" layoutY="208.0" text="ราคาต่อหน่วย" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="11.0" layoutY="111.0" text="รหัสสินค้า" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="18.0" text="ชื่อสินค้า" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="12.0" layoutY="302.0" text="จำนวน" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="f_p_name" layoutX="10.0" layoutY="53.0" prefHeight="25.0" prefWidth="230.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="f_p_price" layoutX="11.0" layoutY="244.0" prefHeight="25.0" prefWidth="230.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="f_p_amount" layoutX="11.0" layoutY="338.0" prefHeight="25.0" prefWidth="230.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="f_p_id" disable="true" editable="false" layoutX="11.0" layoutY="149.0" prefHeight="25.0" prefWidth="230.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK" size="24.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="340.0" layoutY="11.0" text="แก้ไขสินค้า" textFill="#fbff00">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="submit_btn" layoutX="330.0" layoutY="533.0" mnemonicParsing="false" onAction="#btnEditProduct" style="-fx-background-color: white;" text="แก้ไขสินค้า" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="delete_btn" layoutX="452.0" layoutY="533.0" mnemonicParsing="false" onAction="#btnDeleteProduct" style="-fx-background-color: white;" text="ลบสินค้า" textFill="#d40000">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

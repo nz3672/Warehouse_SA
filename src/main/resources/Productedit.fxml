@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="221.0" layoutY="12.0" text="แก้ไขสินค้า" textFill="#fbff00">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="303.0" layoutY="180.0" text="ราคาต่อหน่วย" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="303.0" layoutY="235.0" text="โกดังจัดเก็บ" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="129.0" layoutY="69.0" text="ประเภท" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="303.0" layoutY="123.0" text="รหัสสินค้า" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="303.0" layoutY="66.0" text="ชื่อสินค้า" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="303.0" layoutY="287.0" text="จำนวน" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="F_p_name" layoutX="303.0" layoutY="92.0" prefHeight="25.0" prefWidth="250.0">
+         <font>
+            <Font name="TH SarabunPSK" size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="submit_btn" layoutX="206.0" layoutY="348.0" mnemonicParsing="false" style="-fx-background-color: white;" text="แก้ไขสินค้า" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="back_btn" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: #2e64a2;">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@previousw.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="F_p_id" disable="true" editable="false" layoutX="303.0" layoutY="149.0" prefHeight="25.0" prefWidth="250.0" promptText="F_p_id">
+         <font>
+            <Font name="TH SarabunPSK" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="F_p_price" layoutX="303.0" layoutY="204.0" prefHeight="25.0" prefWidth="250.0">
+         <font>
+            <Font name="TH SarabunPSK" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="F_p_price" layoutX="303.0" layoutY="309.0" prefHeight="25.0" prefWidth="250.0">
+         <font>
+            <Font name="TH SarabunPSK" size="14.0" />
+         </font>
+      </TextField>
+      <CheckBox fx:id="F_p_inventory1" layoutX="306.0" layoutY="258.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="โกดัง 1" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="F_p_inventory2" layoutX="391.0" layoutY="258.0" mnemonicParsing="false" text="โกดัง 2" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="F_p_inventory3" layoutX="477.0" layoutY="258.0" mnemonicParsing="false" text="โกดัง 3" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </CheckBox>
+      <ScrollPane layoutX="58.0" layoutY="94.0" prefHeight="246.0" prefWidth="200.0" style="-fx-background-color: #2e64a2;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="242.0" prefWidth="197.0" style="-fx-background-color: white;">
+               <children>
+                  <CheckBox fx:id="F_p_type1" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" text="ข้อต่อ" textFill="#2e64a2">
+                     <font>
+                        <Font name="TH SarabunPSK Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="F_p_type2" layoutX="10.0" layoutY="43.0" mnemonicParsing="false" text="สปริง-สกรู" textFill="#2e64a2">
+                     <font>
+                        <Font name="TH SarabunPSK Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="F_p_type6" layoutX="10.0" layoutY="179.0" mnemonicParsing="false" text="อะไหล่แม่พิมพ์ปั๊มโลหะ" textFill="#2e64a2">
+                     <font>
+                        <Font name="TH SarabunPSK Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="F_p_type4" layoutX="10.0" layoutY="112.0" mnemonicParsing="false" text="หมวดคัตติ้งทูลส์" textFill="#2e64a2">
+                     <font>
+                        <Font name="TH SarabunPSK Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="F_p_type5" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" text="หมวดเครื่องมือขัด" textFill="#2e64a2">
+                     <font>
+                        <Font name="TH SarabunPSK Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="F_p_type3" layoutX="10.0" layoutY="78.0" mnemonicParsing="false" text="แม่เหล็กและเครื่องมือวัด" textFill="#2e64a2">
+                     <font>
+                        <Font name="TH SarabunPSK Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="F_p_type7" layoutX="10.0" layoutY="213.0" mnemonicParsing="false" text="อะไหล่แม่พิมพ์พลาสติก" textFill="#2e64a2">
+                     <font>
+                        <Font name="TH SarabunPSK Bold" size="18.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button fx:id="delete_btn" layoutX="304.0" layoutY="348.0" mnemonicParsing="false" style="-fx-background-color: white;" text="ลบสินค้า" textFill="#d40000">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
