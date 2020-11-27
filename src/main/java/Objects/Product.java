@@ -1,4 +1,4 @@
-package Warehouse;
+package Objects;
 
 public class Product {
     private String productId;

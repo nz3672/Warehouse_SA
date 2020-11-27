@@ -1,20 +1,13 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
 import User.PasswordBCrypt;
 import User.UserID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import tool.setNotic;
-import tool.setNoticClass;
+import tool.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -28,13 +21,14 @@ public class RegisterController {
     @FXML
     Label textEmpty; // Tonqs have to create by yourself
     @FXML
+    RadioButton checkInvt, checkMana;
     UserID userID;
     private PasswordBCrypt pwdBcrypt;
 
     public void btnRegister(ActionEvent actionEvent) throws IOException, SQLException {
         if (checkEmpty() == true){
             userID = new UserID(f_em_id.getText(),f_em_name.getText()
-                    ,f_em_username.getText(),f_em_password.getText());
+                    ,f_em_username.getText(),f_em_password.getText(),selectedRank()); // v.2 tong add employee's rank
             pwdBcrypt = new PasswordBCrypt(userID);
             pwdBcrypt.encryptPassword();
             userID.setPassword(pwdBcrypt.getHashed()); // encrypt password
@@ -52,6 +46,7 @@ public class RegisterController {
                 preparedStatement.setString(2, userID.getName());
                 preparedStatement.setString(3, userID.getUsername());
                 preparedStatement.setString(4, userID.getPassword());
+                preparedStatement.setString(5,userID.getRank()); // v2 by tong
                 preparedStatement.executeUpdate();
                 Button btn = (Button) actionEvent.getSource();
                 Stage stage = (Stage) btn.getScene().getWindow();
@@ -78,5 +73,17 @@ public class RegisterController {
         else{
             return true;
         }
+    }
+
+    public ToggleGroup rank(){
+        setToggle setToggle = new setToggleClass();
+        ToggleGroup toggleGroup = new ToggleGroup();
+        setToggle.setToggle(checkInvt,"Manager",toggleGroup);
+        setToggle.setToggle(checkMana,"Inventory",toggleGroup);
+        return  toggleGroup;
+    }
+    public String selectedRank(){
+        checkEmpty checkEmpty = new CheckEmptyClass();
+        return checkEmpty.checkSelectedRiobtn(rank());
     }
 }

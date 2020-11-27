@@ -1,11 +1,11 @@
-package Warehouse;
+package SupOrder;
 
-public class Lots {
+public class OrderSupplier {
     private String lotId;
     private String supplier;
     private String dateRecieve;
 
-    public Lots(String lotId, String supplier, String dateRecieve) {
+    public OrderSupplier(String lotId, String supplier, String dateRecieve) {
         this.lotId = lotId;
         this.supplier = supplier;
         this.dateRecieve = dateRecieve;

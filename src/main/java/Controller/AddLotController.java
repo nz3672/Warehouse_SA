@@ -1,11 +1,9 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
 import User.UserID;
-import Warehouse.Product;
-import javafx.application.Platform;
+import Objects.Product;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tool.setNotic;
 import tool.setNoticClass;
@@ -27,7 +24,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
 
 public class AddLotController {
     @FXML

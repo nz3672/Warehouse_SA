@@ -1,4 +1,4 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
 import User.PasswordBCrypt;
@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.springframework.security.core.parameters.P;
 import tool.setNotic;
 import tool.setNoticClass;
 

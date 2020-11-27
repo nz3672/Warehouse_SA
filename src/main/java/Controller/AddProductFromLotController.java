@@ -1,7 +1,7 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
-import Warehouse.Product;
+import Objects.Product;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -9,11 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.springframework.security.core.parameters.P;
 
 import java.io.IOException;
 import java.sql.Connection;

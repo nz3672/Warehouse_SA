@@ -1,8 +1,8 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
 import User.UserID;
-import Warehouse.Product;
+import Objects.Product;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -14,8 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import tool.CheckEmptyClass;
 import tool.checkEmpty;

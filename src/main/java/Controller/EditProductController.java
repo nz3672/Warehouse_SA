@@ -1,16 +1,12 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
-import Warehouse.Product;
+import Objects.Product;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 import tool.*;
 
 import java.io.IOException;
@@ -19,8 +15,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 
 public class EditProductController { //หน้านี้จะถูกกดแก้ไขจากหน้า homepage ปุ่มกดแก้ไขเพื่อเข้าหน้านี้จะอยู่ตรงรายละเอียดใน table ของสินค้านั้น
     // เพราะฉะนั้นพอกดเข้ามา จะต้องนำพา product ของหน้านั้นที่เรากดมาด้วย เพื่อจะได้รู้ว่าจะแก้ไขอะไร is setProduct()

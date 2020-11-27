@@ -1,10 +1,8 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
 import User.UserID;
-import Warehouse.Has;
-import Warehouse.Lots;
-import Warehouse.Product;
+import SupOrder.PurchaseList;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -19,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import tool.setNotic;
 import tool.setNoticClass;
@@ -36,11 +33,11 @@ public class LotsHistoryController {
     @FXML
     TableView historyProduct;
     @FXML
-    TableColumn<Has, String> idProducts;
+    TableColumn<PurchaseList, String> idProducts;
     @FXML
-    TableColumn<Has, Double> amountProducts;
+    TableColumn<PurchaseList, Double> amountProducts;
     @FXML
-    TableColumn<Has, String> idLots;
+    TableColumn<PurchaseList, String> idLots;
     ObservableList observableList = FXCollections.observableArrayList();
     UserID userID;
 
@@ -50,9 +47,9 @@ public class LotsHistoryController {
 
     @FXML
     public void initialize() {
-        idProducts.setCellValueFactory((TableColumn.CellDataFeatures<Has, String> p) -> new SimpleStringProperty(p.getValue().getP_id()));
-        amountProducts.setCellValueFactory((TableColumn.CellDataFeatures<Has, Double> p) -> new SimpleDoubleProperty(p.getValue().getP_amount()).asObject());
-        idLots.setCellValueFactory((TableColumn.CellDataFeatures<Has, String> p) -> new SimpleStringProperty(p.getValue().getL_id()));
+        idProducts.setCellValueFactory((TableColumn.CellDataFeatures<PurchaseList, String> p) -> new SimpleStringProperty(p.getValue().getpID()));
+        amountProducts.setCellValueFactory((TableColumn.CellDataFeatures<PurchaseList, Double> p) -> new SimpleDoubleProperty(p.getValue().getpAmount()).asObject());
+        idLots.setCellValueFactory((TableColumn.CellDataFeatures<PurchaseList, String> p) -> new SimpleStringProperty(p.getValue().getOsId()));
 
 
         Platform.runLater(new Runnable() {
@@ -71,7 +68,7 @@ public class LotsHistoryController {
                     else {
                         //แสดงตาราง HAS ทั้งหมด
                         while (rec.next()) {
-                            observableList.add(new Has(rec.getString(1), rec.getString(3), Double.parseDouble(rec.getString(2))));
+                            observableList.add(new PurchaseList(rec.getString(1), rec.getString(3), Double.parseDouble(rec.getString(2))));
                         }
                         historyProduct.setItems(observableList);
                     }

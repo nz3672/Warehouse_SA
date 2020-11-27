@@ -1,4 +1,4 @@
-package sample;
+package Controller;
 
 import Connection.ConnectionHandler;
 import User.PasswordBCrypt;

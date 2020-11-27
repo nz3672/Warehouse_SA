@@ -1,7 +1,5 @@
-package sample;
+package Controller;
 
-import User.PasswordBCrypt;
-import User.UserID;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/loginPage.fxml"));
-        primaryStage.setTitle("Warehouse Warehouse");
+        primaryStage.setTitle("SupOrder SupOrder");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
     }
