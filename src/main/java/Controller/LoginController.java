@@ -19,7 +19,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class Controller {
+public class LoginController {
     @FXML
     public TextField f_em_username, f_em_password;
     public Label textTest;
@@ -44,7 +44,7 @@ public class Controller {
                 System.out.println(checkpwd);
                 if (checkpwd) {
                     showLoginResultDialog("Login successful!", null, "Successful");
-                    userID = new UserID(rec.getString(1), rec.getString(2), rec.getString(3), rec.getString(4));
+                    userID = new UserID(rec.getString(1), rec.getString(2), rec.getString(3), rec.getString(4), rec.getString(5));
                     Button btn = (Button) actionEvent.getSource();
                     Stage stage = (Stage) btn.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/homePage.fxml"));
