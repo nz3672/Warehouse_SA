@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.springframework.security.core.parameters.P;
 import tool.*;
 
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class EditProductController { //หน้านี้จะถูกก�
                 idNameWh.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getId()));
                 levelWh.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getLevel()));
                 nameShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getShelf()));
-                levelWh.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w ) -> new SimpleStringProperty(w.getValue().getShelfLevel()));
+                levelShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w ) -> new SimpleStringProperty(w.getValue().getShelfLevel()));
 
                 try {
                     ResultSet getwh_id = connection.prepareStatement("SELECT wh_id FROM warehouselist WHERE pd_id = \""+ product.getProductId()+ "\";").executeQuery();
@@ -100,12 +101,12 @@ public class EditProductController { //หน้านี้จะถูกก�
     }
 
     public void btnDeleteWareh(ActionEvent actionEvent) throws IOException, SQLException {
-//        String sql = "DELETE FROM warehouselist WHERE pd_id = ? AND wh_id = ?;";
-//        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//        preparedStatement.setString(1, f_p_id.getText());
-//        preparedStatement.setString(2, t_warehouse.getItems().get(t_warehouse.getSelectionModel().getSelectedIndex()));
-//        preparedStatement.executeUpdate();
-        t_warehouse.getItems().removeAll(t_warehouse.getSelectionModel().getSelectedCells());
+        String sql = "DELETE FROM warehouselist WHERE pd_id = ? AND wh_id = ?;";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, f_p_id.getText());
+        preparedStatement.setString(2, warehouseObservableList.get(t_warehouse.getSelectionModel().getSelectedIndex()).getId());
+        preparedStatement.executeUpdate();
+        t_warehouse.getItems().removeAll(t_warehouse.getSelectionModel().getSelectedItem());
 
     }
 
@@ -119,7 +120,7 @@ public class EditProductController { //หน้านี้จะถูกก�
 
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-            String sql = "UPDATE product SET P_amount = ?, P_name = ?, P_price = ?, P_edit_date = ? WHERE pd_id = ?;";
+            String sql = "UPDATE product SET pd_amount = ?, pd_name = ?, pd_price = ?, pd_save_date = ? WHERE pd_id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, String.valueOf(f_p_amount.getText()));
             preparedStatement.setString(2, f_p_name.getText());

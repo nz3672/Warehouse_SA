@@ -13,40 +13,32 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
    <children>
-      <Button fx:id="history" layoutX="819.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnLotsHistory" style="-fx-background-color: #2e64a2;" styleClass="history">
-         <graphic>
-            <ImageView fx:id="btnLotsHistory" fitHeight="34.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Picture/clockw.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <ImageView fitHeight="127.0" fitWidth="159.0" layoutX="40.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="history" layoutX="819.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnLotsHistory" style="-fx-background-color: #2e64a2;" styleClass="history" />
+      <ImageView fitHeight="127.0" fitWidth="159.0" layoutX="40.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Picture/logo.jpg" />
          </image>
       </ImageView>
-      <Hyperlink fx:id="f_em_name" alignment="CENTER" layoutX="26.0" layoutY="154.0" onAction="#btnGotoEditUser" prefHeight="23.0" prefWidth="188.0" style="-fx-background-color: white;" text="Account_Name" textAlignment="CENTER" textFill="#2e64a2">
+      <Hyperlink fx:id="f_em_name" alignment="CENTER" layoutX="26.0" layoutY="137.0" onAction="#btnGotoEditUser" prefHeight="23.0" prefWidth="188.0" style="-fx-background-color: white;" text="Account_Name" textAlignment="CENTER" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold Italic" size="18.0" />
          </font>
       </Hyperlink>
-      <Button fx:id="btnGoToLotPage" layoutX="229.0" layoutY="81.0" mnemonicParsing="false" onAction="#btnGotoLotPage" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: white;" text="เพิ่มรายการสั่งซื้อ" textFill="#2e64a2">
+      <Button fx:id="btnGoToLotPage" layoutX="229.0" layoutY="69.0" mnemonicParsing="false" onAction="#btnGotoLotPage" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: white;" text="เพิ่มคลังสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnGoToAddProduct" layoutX="448.0" layoutY="80.0" mnemonicParsing="false" onAction="#btnGoToAddProduct" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: white;" text="เพิ่มสินค้า" textFill="#2e64a2">
+      <Button fx:id="btnGoToAddProduct" layoutX="453.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnGoToAddProduct" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: white;" text="เพิ่มสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="229.0" layoutY="130.0" prefHeight="440.0" prefWidth="640.0">
+      <ScrollPane layoutX="226.0" layoutY="119.0" prefHeight="301.0" prefWidth="654.0">
          <content>
-            <TableView fx:id="stockProduct" prefHeight="438.0" prefWidth="638.0">
+            <TableView fx:id="stockProduct" prefHeight="408.0" prefWidth="638.0">
               <columns>
                   <TableColumn fx:id="idProducts" prefWidth="64.0" text="รหัสสินค้า" />
                 <TableColumn fx:id="nameProducts" prefWidth="159.0" text="ชื่อสินค้า" />
@@ -59,12 +51,12 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Hyperlink fx:id="btnLogout" layoutX="95.0" layoutY="175.0" onAction="#btnLogout" prefHeight="25.0" prefWidth="59.0" style="-fx-text-alignment: Center;" text="ลงชื่อออก" textAlignment="CENTER" textFill="WHITE" underline="true">
+      <Hyperlink fx:id="btnLogout" layoutX="59.0" layoutY="542.0" onAction="#btnLogout" prefHeight="33.0" prefWidth="113.0" style="-fx-text-alignment: Center;" text="ลงชื่อออก" textAlignment="CENTER" textFill="WHITE" underline="true">
          <font>
-            <Font name="TH SarabunPSK Bold Italic" size="16.0" />
+            <Font size="24.0" />
          </font>
       </Hyperlink>
-      <Pane layoutX="26.0" layoutY="197.0" prefHeight="373.0" prefWidth="187.0" style="-fx-background-color: white;">
+      <Pane layoutX="26.0" layoutY="197.0" prefHeight="241.0" prefWidth="187.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="7.0" layoutY="3.0" text="เรียงตาม">
                <font>
@@ -76,67 +68,58 @@
                   <Font name="TH SarabunPSK Bold" size="16.0" />
                </font>
             </Label>
-            <CheckBox fx:id="lowToHigh" layoutX="42.0" layoutY="52.0" mnemonicParsing="false" text="น้อย-มาก">
+            <CheckBox fx:id="lowToHigh" layoutX="42.0" layoutY="64.0" mnemonicParsing="false" text="น้อย-มาก">
                <font>
                   <Font name="TH SarabunPSK Bold" size="16.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="highToLow" layoutX="42.0" layoutY="78.0" mnemonicParsing="false" text="มาก-น้อย">
+            <CheckBox fx:id="highToLow" layoutX="42.0" layoutY="90.0" mnemonicParsing="false" text="มาก-น้อย">
                <font>
                   <Font name="TH SarabunPSK Bold" size="16.0" />
                </font>
             </CheckBox>
-            <Label layoutX="11.0" layoutY="110.0" text="ประเภท">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </Label>
-            <CheckBox fx:id="f_p_type1" layoutX="16.0" layoutY="144.0" mnemonicParsing="false" text="ข้อต่อ">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="f_p_type2" layoutX="16.0" layoutY="170.0" mnemonicParsing="false" text="สปริง-สกรู">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="f_p_type3" layoutX="16.0" layoutY="195.0" mnemonicParsing="false" text="หมวดคัตติ้งทูลส์">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="f_p_type4" layoutX="16.0" layoutY="221.0" mnemonicParsing="false" text="หมวดเครื่องมือขัด">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="f_p_type5" layoutX="16.0" layoutY="246.0" mnemonicParsing="false" text="แม่เหล็กและเครื่องมือวัด">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="f_p_type6" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" text="อะไหล่แม่พิมพ์ปั๊มโลหะ">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="f_p_type7" layoutX="16.0" layoutY="297.0" mnemonicParsing="false" text="อะไหล่แม่พิมพ์พลาสติก">
-               <font>
-                  <Font name="TH SarabunPSK Bold" size="16.0" />
-               </font>
-            </CheckBox>
-            <Button fx:id="btnFilter" layoutX="56.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="39.0" prefWidth="59.0" style="-fx-background-color: white;" text="Go" textFill="#2e537d">
+            <Button fx:id="btnFilter" layoutX="65.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="39.0" prefWidth="59.0" style="-fx-background-color: CDF2FF;" text="Go" textFill="#2e537d">
                <font>
                   <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Button fx:id="btnGoToEditProduct" layoutX="669.0" layoutY="81.0" mnemonicParsing="false" onAction="#btnGotoEditProduct" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: white;" text="แก้ไขสินค้า" textFill="#2e64a2">
+      <Button fx:id="btnGoToEditProduct" layoutX="706.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnGotoEditProduct" prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: white;" text="แก้ไขสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btnGoToLotPage1" layoutX="231.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnGotoLotPage" prefHeight="39.0" prefWidth="466.0" style="-fx-background-color: white;" text="เพิ่มรายการสั่งซื้อ" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnGoToAddProduct1" layoutX="664.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnGoToAddProduct" prefHeight="39.0" prefWidth="216.0" style="-fx-background-color: white;" text="เพิ่มประเภทสินค้า" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="btnLotsHistory" fitHeight="34.0" fitWidth="46.0" layoutX="842.0" layoutY="26.0" onMouseClicked="#btnLotsHistory" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Picture/clockw.png" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutX="226.0" layoutY="425.0" prefHeight="157.0" prefWidth="654.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="t_warehouse" layoutX="2.0" layoutY="4.0" prefHeight="212.0" prefWidth="646.0" style="-fx-background-color: CDF2FF;">
+                    <columns>
+                      <TableColumn fx:id="t_nameWH" prefWidth="193.44442749023438" text="ชื่อของ warehouse" />
+                      <TableColumn fx:id="t_levelWH" minWidth="0.0" prefWidth="127.22216796875" text="ชั้นของ warehouse" />
+                        <TableColumn fx:id="t_nameShelf" prefWidth="183.77783203125" text="ชื่อของ Shelf" />
+                        <TableColumn fx:id="t_levelShelf" prefWidth="129.33331298828125" text="ชั้นของ shelft" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

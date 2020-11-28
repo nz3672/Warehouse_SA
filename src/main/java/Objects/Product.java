@@ -88,7 +88,7 @@ public class Product {
         return Warehouse;
     }
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 

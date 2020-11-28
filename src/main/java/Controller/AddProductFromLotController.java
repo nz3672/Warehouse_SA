@@ -91,17 +91,14 @@ public class AddProductFromLotController {
     }
 
     public void btnSubmit(ActionEvent actionEvent) throws IOException, SQLException {
-        if (p_l_name.getValue() != null && !p_l_amount.getText().equals("") && !(f_new_wh.isSelected() || f_wh.isSelected()) && (f_new_wh.isSelected() && chooseWh.getValue() != null)) {
+        if (p_l_name.getValue() != null && !p_l_amount.getText().equals("") && ((f_new_wh.isSelected() && chooseWh.getValue() != null) || f_wh.isSelected())) {
         ConnectionHandler connectionHandler = new ConnectionHandler();
         Connection connection = connectionHandler.getConnection();
+            product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()),"date");
         if (f_new_wh.isSelected()){
             String[] warehouseDetails = chooseWh.getValue().toString().split(" ");// extract warehouse details from warehouseobservable list
             //System.out.println(warehouseDetails[1] + warehouseDetails[3] + warehouseDetails[5] + warehouseDetails[7]);
-           product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()),"date");
            whList = new WarehouseList(new Warehouse(warehouseDetails[1], warehouseDetails[3], warehouseDetails[5], warehouseDetails[7]),product);
-        }
-        else {
-            product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()), "date");
         }
         Button btnSubToLot = (Button) actionEvent.getSource();
         Stage stage = (Stage) btnSubToLot.getScene().getWindow();

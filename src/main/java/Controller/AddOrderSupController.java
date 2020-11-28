@@ -86,7 +86,7 @@ public class AddOrderSupController {
         AddProductFromLotController addProductController = fxmlLoader.getController();
         stage.showAndWait();
 
-        if (product !=null && warehouseList != null) {
+        if (product !=null || warehouseList != null) {
             System.out.println(warehouseListArrayList.size());
             warehouseListArrayList.add(warehouseList);
             productObservableList.add(product);
