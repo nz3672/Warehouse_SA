@@ -12,18 +12,23 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LotsHistoryController">
    <children>
-      <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
+      <ScrollPane layoutX="40.0" layoutY="101.0" prefHeight="430.0" prefWidth="820.0">
          <content>
-            <TableView fx:id="historyProduct" prefHeight="428.0" prefWidth="778.0">
+            <TableView fx:id="historyProduct" prefHeight="428.0" prefWidth="818.0">
               <columns>
-                <TableColumn fx:id="idLots" prefWidth="262.11114501953125" text="รหัสการสั่งซื้อ" />
-                <TableColumn fx:id="idProducts" prefWidth="265.55560302734375" text="รหัสสินค้า" />
-                  <TableColumn fx:id="amountProducts" prefWidth="248.0" text="จำนวน" />
+                <TableColumn fx:id="idOrder" prefWidth="77.0" text="รหัสการสั่งซื้อ" />
+                  <TableColumn fx:id="supName" prefWidth="145.0" text="ชื่อ suplier" />
+                  <TableColumn fx:id="supNum" prefWidth="115.0" text="เบอร์ติดต่อ supplier" />
+                  <TableColumn fx:id="dateSave" prefWidth="85.0" text="วันที่ได้รับสินค้า" />
+                  <TableColumn fx:id="dateRecieve" prefWidth="89.0" text="วันที่บันทึก" />
+                <TableColumn fx:id="idProducts" prefWidth="72.0" text="รหัสสินค้า" />
+                  <TableColumn fx:id="nameProducts" prefWidth="175.0" text="ชื่อสินค้า" />
+                  <TableColumn fx:id="amountProducts" prefWidth="59.0" text="จำนวน" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
-      <Label layoutX="300.0" layoutY="8.0" text="ประวัติการสั่งซื้อ" textFill="#fbff00">
+      <Label layoutX="261.0" layoutY="6.0" text="ประวัติการสั่งซื้อ" textFill="#fbff00">
          <font>
             <Font name="TH SarabunPSK Bold" size="64.0" />
          </font>

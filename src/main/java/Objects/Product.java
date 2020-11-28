@@ -5,30 +5,39 @@ public class Product {
     private String name;
     private double price;
     private String type;
-    private String inventoryName;
-    private double amount;
+    private Warehouse Warehouse;
+    private int amount;
     private String saveDate;
 
-    public Product(String productId, String name, double price, String type, String inventoryName, String saveDate) {
+    public Product(String productId, String name, double price, String type, Warehouse Warehouse, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.price = price;
         this.type = type;
-        this.inventoryName = inventoryName;
+        this.Warehouse = Warehouse;
         this.saveDate = saveDate;
     }
 
-    public Product(String productId,double amount,String name,  String inventoryName,String type, double price, String saveDate) {
+    public Product(String productId, int amount, String name, Warehouse Warehouse, String type, double price, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.price = price;
         this.type = type;
-        this.inventoryName = inventoryName;
+        this.Warehouse = Warehouse;
         this.saveDate = saveDate;
         this.amount = amount;
     }
 
-    public Product(String productId, String name, double amount, String saveDate) {
+    public Product(String productId, String name, double price, String type, int amount, String saveDate) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.type = type;
+        this.amount = amount;
+        this.saveDate = saveDate;
+    }
+
+    public Product(String productId, String name, int amount, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.amount = amount;
@@ -51,11 +60,11 @@ public class Product {
         this.type = type;
     }
 
-    public void setInventoryName(String inventoryName) {
-        this.inventoryName = inventoryName;
+    public void setWarehouse(Warehouse warehouse) {
+        this.Warehouse = warehouse;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
@@ -75,8 +84,8 @@ public class Product {
         return type;
     }
 
-    public String getInventoryName() {
-        return inventoryName;
+    public Warehouse getWarehouse() {
+        return Warehouse;
     }
 
     public double getAmount() {

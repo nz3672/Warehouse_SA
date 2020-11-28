@@ -56,7 +56,7 @@ public class HomeController {
         idProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, String> p) -> new SimpleStringProperty(p.getValue().getProductId()));
         amountProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, Double> p) -> new SimpleDoubleProperty(p.getValue().getAmount()).asObject());
         nameProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, String> p) -> new SimpleStringProperty(p.getValue().getName()));
-        invenProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, String> p) -> new SimpleStringProperty(p.getValue().getInventoryName()));
+        //invenProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, String> p) -> new SimpleStringProperty(p.getValue().getInventoryName()));
         typeProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, String> p) -> new SimpleStringProperty(p.getValue().getType()));
         priceProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, Double> p) -> new SimpleDoubleProperty(p.getValue().getPrice()).asObject());
         saveProducts.setCellValueFactory((TableColumn.CellDataFeatures<Product, String> p) -> new SimpleStringProperty(p.getValue().getSaveDate()));
@@ -73,7 +73,7 @@ public class HomeController {
                     ResultSet rec = connection.createStatement().executeQuery("SELECT * FROM product");
 
                     while (rec.next()) {
-                        observableList.add(new Product(rec.getString(1), Double.parseDouble(rec.getString(2)), rec.getString(3),rec.getString(4), rec.getString(5), Double.parseDouble(rec.getString(6)), rec.getString(7)));
+                        //observableList.add(new Product(rec.getString(1), Double.parseDouble(rec.getString(2)), rec.getString(3),rec.getString(4), rec.getString(5), Double.parseDouble(rec.getString(6)), rec.getString(7)));
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -134,8 +134,8 @@ public class HomeController {
         Stage stage = (Stage) btn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/addLotPage.fxml"));
         stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
-        AddLotController Controller = fxmlLoader.getController();
-        Controller.setUserID(user);
+//        AddLotController Controller = fxmlLoader.getController();
+//        Controller.setUserID(user);
         stage.show();
     }
 
@@ -152,13 +152,13 @@ public class HomeController {
     }
 
     public void btnLotsHistory(ActionEvent actionEvent) throws IOException {
-        Button btn = (Button) actionEvent.getSource();
-        Stage stage = (Stage) btn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/lotsHistoryPage.fxml"));
-        stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
-        LotsHistoryController controller = fxmlLoader.getController();
-        controller.setUserID(user);
-        stage.show();
+//        Button btn = (Button) actionEvent.getSource();
+//        Stage stage = (Stage) btn.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/lotsHistoryPage.fxml"));
+//        stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
+//        LotsHistoryController controller = fxmlLoader.getController();
+//        controller.setUserID(user);
+//        stage.show();
     }
 
     public void btnGotoEditUser(ActionEvent actionEvent) throws IOException {
@@ -172,19 +172,19 @@ public class HomeController {
     }
 
     public void btnGotoEditProduct(ActionEvent actionEvent) throws IOException {
-        if (stockProduct.getSelectionModel().getSelectedItem() != null) {
-        System.out.println(stockProduct.getSelectionModel().getSelectedItem());
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/editProductPage.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load(),900,600));
-        EditProductController editProductController = fxmlLoader.getController();
-        editProductController.setProduct((Product) stockProduct.getSelectionModel().getSelectedItem());
-        stage.showAndWait();
-        this.updateTable();
-        } else {
-            setNotic setNotic = new setNoticClass();
-            setNotic.showNotic("กรุณาเลือกสินค่าเพื่อทำการแก้ไข","Error");
-        }
+//        if (stockProduct.getSelectionModel().getSelectedItem() != null) {
+//        System.out.println(stockProduct.getSelectionModel().getSelectedItem());
+//        Stage stage = new Stage();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/editProductPage.fxml"));
+//        stage.setScene(new Scene(fxmlLoader.load(),900,600));
+//        EditProductController editProductController = fxmlLoader.getController();
+//        editProductController.setProduct((Product) stockProduct.getSelectionModel().getSelectedItem());
+//        stage.showAndWait();
+//        this.updateTable();
+//        } else {
+//            setNotic setNotic = new setNoticClass();
+//            setNotic.showNotic("กรุณาเลือกสินค่าเพื่อทำการแก้ไข","Error");
+//        }
 
     }
 
@@ -195,7 +195,7 @@ public class HomeController {
         Stage stage = (Stage) btn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/loginPage.fxml"));
         stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
-        Controller Controller = fxmlLoader.getController();
+        LoginController LoginController = fxmlLoader.getController();
         setNotic.showNotic("Logout!", "Logout");
         stage.show();
         }
@@ -214,7 +214,7 @@ public class HomeController {
             ResultSet rec = connection.createStatement().executeQuery("SELECT * FROM product");
             observableList.clear();
             while (rec.next()) {
-                this.observableList.add(new Product(rec.getString(1), Double.parseDouble(rec.getString(2)), rec.getString(3),rec.getString(4), rec.getString(5), Double.parseDouble(rec.getString(6)), rec.getString(7)));
+                //this.observableList.add(new Product(rec.getString(1), Double.parseDouble(rec.getString(2)), rec.getString(3),rec.getString(4), rec.getString(5), Double.parseDouble(rec.getString(6)), rec.getString(7)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -231,7 +231,7 @@ public class HomeController {
             ResultSet rec = connection.createStatement().executeQuery(sql);
             observableList.clear();
             while (rec.next()) {
-                this.observableList.add(new Product(rec.getString(1), Double.parseDouble(rec.getString(2)), rec.getString(3),rec.getString(4), rec.getString(5), Double.parseDouble(rec.getString(6)), rec.getString(7)));
+                //this.observableList.add(new Product(rec.getString(1), Double.parseDouble(rec.getString(2)), rec.getString(3),rec.getString(4), rec.getString(5), Double.parseDouble(rec.getString(6)), rec.getString(7)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
