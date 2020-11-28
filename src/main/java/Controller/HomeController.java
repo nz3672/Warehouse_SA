@@ -80,6 +80,7 @@ public class HomeController {
                         ResultSet getType = connection.createStatement().executeQuery("SELECT t_name FROM type WHERE t_id = \""+rec.getString(6)+"\"");
                         getType.next();
                         observableList.add(new Product(rec.getString(1),rec.getString(2), Double.parseDouble(rec.getString(3)), getType.getString(1),  Integer.parseInt(rec.getString(4)), rec.getString(5)));
+
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -138,6 +139,7 @@ public class HomeController {
         }
     }
 
+
     public void btnLotsHistory(MouseEvent actionEvent) throws IOException {
         ImageView btn = (ImageView) actionEvent.getSource();
         Stage stage = (Stage) btn.getScene().getWindow();
@@ -159,19 +161,19 @@ public class HomeController {
     }
 
     public void btnGotoEditProduct(ActionEvent actionEvent) throws IOException {
-        if (stockProduct.getSelectionModel().getSelectedItem() != null) {
-        System.out.println(stockProduct.getSelectionModel().getSelectedItem());
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/editProductPage.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load(),900,600));
-        EditProductController editProductController = fxmlLoader.getController();
-        editProductController.setProduct((Product) stockProduct.getSelectionModel().getSelectedItem());
-        stage.showAndWait();
-        this.updateTable();
-        } else {
-            setNotic setNotic = new setNoticClass();
-            setNotic.showNotic("กรุณาเลือกสินค่าเพื่อทำการแก้ไข","Error");
-        }
+//        if (stockProduct.getSelectionModel().getSelectedItem() != null) {
+//        System.out.println(stockProduct.getSelectionModel().getSelectedItem());
+//        Stage stage = new Stage();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/editProductPage.fxml"));
+//        stage.setScene(new Scene(fxmlLoader.load(),900,600));
+//        EditProductController editProductController = fxmlLoader.getController();
+//        editProductController.setProduct((Product) stockProduct.getSelectionModel().getSelectedItem());
+//        stage.showAndWait();
+//        this.updateTable();
+//        } else {
+//            setNotic setNotic = new setNoticClass();
+//            setNotic.showNotic("กรุณาเลือกสินค่าเพื่อทำการแก้ไข","Error");
+//        }
 
     }
 

@@ -1,10 +1,10 @@
 package Controller;
 
 import Connection.ConnectionHandler;
-import Objects.Product;
 import Objects.Type;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -16,7 +16,7 @@ import tool.setNotic;
 import tool.setNoticClass;
 
 
-import java.awt.event.ActionEvent;
+
 import java.io.IOException;
 import java.sql.Connection;
 
@@ -32,19 +32,20 @@ public class AddTypeController {
     TableColumn<Type,String> t_idType, t_nameType;
     @FXML
     TextField nameType,idType;
-    @FXML
+
     ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
 
     private Type type;
     private Connection connection;
 
+    @FXML
     public void initialize(){
         ConnectionHandler connectionHandler = new ConnectionHandler();
         connection = connectionHandler.getConnection();
     }
 
     public void btnAddType(ActionEvent actionEvent) throws IOException, SQLException {
-        PreparedStatement checkP_id = connection.prepareStatement("SELECT pd_id FROM product WHERE pd_id = ?");
+        PreparedStatement checkP_id = connection.prepareStatement("SELECT t_id FROM type WHERE pd_id = ?");
         checkP_id.setString(1, idType.getText());
         ResultSet rs = checkP_id.executeQuery();
         boolean checkpID = true;
@@ -74,8 +75,6 @@ public class AddTypeController {
     public void btnSubmit(ActionEvent actionEvent) throws  IOException,SQLException{
         if (typeObservableList.size() != 0){
 
-
-            DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
             String sql = "INSERT INTO type VALUES (?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

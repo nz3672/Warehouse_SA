@@ -15,6 +15,12 @@ public class OrderCustomer {
         this.saleLists = saleLists;
     }
 
+    public OrderCustomer(String id, Customer customer, String date) {
+        this.id = id;
+        this.date = date;
+        this.customer = customer;
+    }
+
     public String getId() {
         return id;
     }

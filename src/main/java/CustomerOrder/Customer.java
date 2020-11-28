@@ -6,7 +6,7 @@ public class Customer {
     private String address;
     private String phone;
 
-    public Customer(String id, String name, String address, String phone) {
+    public Customer(String id, String name,String phone, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -15,6 +15,10 @@ public class Customer {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getPhone() {

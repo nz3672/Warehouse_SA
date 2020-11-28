@@ -5,6 +5,11 @@ public class WarehouseList {
     private Warehouse warehouse;
     private Product product;
 
+    public WarehouseList(String id, Warehouse warehouse, Product product) {
+        this.warehouse = warehouse;
+        this.product = product;
+    }
+
     public WarehouseList(Warehouse warehouse, Product product) {
         this.warehouse = warehouse;
         this.product = product;

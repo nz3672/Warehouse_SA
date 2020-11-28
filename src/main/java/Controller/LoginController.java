@@ -44,7 +44,7 @@ public class LoginController {
                 System.out.println(checkpwd);
                 if (checkpwd) {
                     showLoginResultDialog("Login successful!", null, "Successful");
-                    userID = new UserID(rec.getString(1), rec.getString(2), rec.getString(3), rec.getString(4));
+                    userID = new UserID(rec.getString(1), rec.getString(2), rec.getString(3), rec.getString(4), rec.getString(5));
                     Button btn = (Button) actionEvent.getSource();
                     Stage stage = (Stage) btn.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/homePage.fxml"));
