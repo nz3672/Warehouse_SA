@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddOrderCtmController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddOrderSupController">
    <children>
       <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
         <content>
@@ -29,7 +29,7 @@
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="131.0" text="Customer" textFill="#2e64a2">
+                              <Label layoutX="10.0" layoutY="131.0" text="Supplier" textFill="#2e64a2">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -39,12 +39,12 @@
                                     <Font name="TH SarabunPSK" size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="f_cusName" layoutX="93.0" layoutY="174.0" prefHeight="51.0" prefWidth="175.0">
+                              <TextField fx:id="f_l_supName" layoutX="93.0" layoutY="174.0" prefHeight="51.0" prefWidth="175.0">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="f_cusPhone" layoutX="91.0" layoutY="239.0" prefHeight="51.0" prefWidth="175.0">
+                              <TextField fx:id="f_l_supPhone" layoutX="91.0" layoutY="239.0" prefHeight="51.0" prefWidth="175.0">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>
@@ -64,11 +64,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="f_cusAddress" layoutX="100.0" layoutY="310.0" prefHeight="105.0" prefWidth="173.0" wrapText="true">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </TextArea>
+                              <TextArea fx:id="f_l_supAddress" layoutX="98.0" layoutY="313.0" prefHeight="101.0" prefWidth="178.0" wrapText="true" />
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="429.0" prefWidth="480.0" style="-fx-background-color: #e2efff;">
@@ -90,18 +86,18 @@
                               </ScrollPane>
                               <AnchorPane layoutX="15.0" layoutY="316.0" prefHeight="113.0" prefWidth="471.0">
                                  <children>
-                                    <Label layoutX="33.0" layoutY="60.0" prefWidth="140.0" text="วันที่ชำระเงิน" textFill="#2e64a2">
+                                    <Label layoutX="34.0" layoutY="60.0" text="วันที่ได้รับ" textFill="#2e64a2">
                                        <font>
                                           <Font name="TH SarabunPSK Bold" size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="38.0" layoutY="-1.0" text="วันที่บันทึก" textFill="#2e64a2">
+                                    <Label layoutX="24.0" layoutY="-5.0" text="วันที่บันทึก" textFill="#2e64a2">
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font name="TH SarabunPSK Bold" size="26.0" />
                                        </font>
                                     </Label>
                                     <DatePicker fx:id="f_l_save_date" layoutX="194.0" layoutY="-6.0" prefHeight="45.0" prefWidth="225.0" />
-                                    <DatePicker fx:id="f_l_pay_date" layoutX="194.0" layoutY="56.0" prefHeight="45.0" prefWidth="228.0" />
+                                    <DatePicker fx:id="f_l_got_date" layoutX="191.0" layoutY="56.0" prefHeight="45.0" prefWidth="231.0" />
                                  </children>
                               </AnchorPane>
                            </children>

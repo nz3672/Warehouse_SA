@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import tool.setNoticClass;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -39,7 +40,7 @@ public class AddProductFromCtmController {
                 Connection connection = connectionHandler.getConnection();
                 productNamelist = FXCollections.observableArrayList();
 
-                String sql = "SELECT P_name FROM product";
+                String sql = "SELECT pd_name FROM product";
                 try {
                     PreparedStatement preparedStatement = connection.prepareStatement(sql);
                     ResultSet rec = preparedStatement.executeQuery();
@@ -56,7 +57,7 @@ public class AddProductFromCtmController {
                         (ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
                             PreparedStatement preparedStatement = null;
                             try {
-                                String QueryText = "SELECT * FROM product WHERE P_name = ?;";
+                                String QueryText = "SELECT * FROM product WHERE pd_name = ?;";
                                 preparedStatement = connection.prepareStatement(QueryText);
                                 preparedStatement.setString(1, productNamelist.get(new_val.intValue()));
                                 ResultSet rec = preparedStatement.executeQuery();
@@ -73,14 +74,19 @@ public class AddProductFromCtmController {
     }
 
     public void btnSubmit(ActionEvent actionEvent) throws IOException {
-        product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Double.parseDouble(p_l_amount.getText()), "date");
+        if (p_l_name.getValue() != null && !p_l_amount.getText().equals("")) {
+        product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()), "date");
         Button btnSubToLot = (Button) actionEvent.getSource();
         Stage stage = (Stage) btnSubToLot.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/AddOrderCtmPage.fxml"));
         fxmlLoader.load();
-        AddOrderSupController addOrderSupController = fxmlLoader.getController();
-        addOrderSupController.setProduct(product); // เอาไปปรอ้นในเทเบิ้ลของหน้านี้
-        stage.close();
+        AddOrderCtmController addOrderCtmController = fxmlLoader.getController();
+        addOrderCtmController.setProduct(product); // เอาไปปรอ้นในเทเบิ้ลของหน้านี้
+        stage.close(); }
+        else {
+            setNoticClass setNoticClass = new setNoticClass();
+            setNoticClass.showNotic("กรุณากรอกข้อมูลสินค้าให้ครบถ้วน","Error");
+        }
     }
 
     public void setProduct(Product product) {

@@ -27,9 +27,11 @@ import java.time.format.DateTimeFormatter;
 
 public class AddOrderCtmController {
     @FXML
-    TextField f_l_id, f_cusName,f_cusPhone,f_cusAddress;
+    TextField f_l_id, f_cusName,f_cusPhone;
     @FXML
-    DatePicker f_l_save_date, f_l_got_date;
+    TextArea f_cusAddress;
+    @FXML
+    DatePicker f_l_save_date, f_l_pay_date;
     @FXML
     TableView f_products;
     @FXML
@@ -55,12 +57,12 @@ public class AddOrderCtmController {
         f_l_save_date.setValue(LocalDate.now());
 
         //v2 by tong
-        f_l_got_date.setDayCellFactory(picker -> new DateCell() {
+        f_l_pay_date.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
                 LocalDate today = LocalDate.now();
 
-                setDisable(empty || date.compareTo(today) < 0 ); // not sure by tong
+                setDisable(empty || date.compareTo(today) > 0  || date.compareTo(today) < -1); // not sure by tong
             }
         });
 
@@ -72,8 +74,11 @@ public class AddOrderCtmController {
         stage.setScene(new Scene( (Parent) fxmlLoader.load(),900,600));
         AddProductFromCtmController addProductController = fxmlLoader.getController();
         stage.showAndWait();
-        productObservableList.add(product);
-        f_products.setItems(productObservableList);
+        if (product != null) {
+            productObservableList.add(product);
+            f_products.setItems(productObservableList);
+            product = null;
+        }
     }
 
     public void btnSubmit(ActionEvent actionEvent) throws IOException, SQLException {
@@ -84,21 +89,21 @@ public class AddOrderCtmController {
             setNotic setNotic = new setNoticClass();
             setNotic.showNotic("กรุณาเพิ่มสินค้า เพื่อไปต่อ","Error");
         } else {
-            String sql = "INSERT INTO suppiler (c_name, c_phone, c_address) VALUES (?, ?, ?);";
+            String sql = "INSERT INTO customer (c_name, c_phone, c_address) VALUES (?, ?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, f_cusName.getText());
             preparedStatement.setString(2, f_cusPhone.getText());
             preparedStatement.setString(3, f_cusAddress.getText());
             preparedStatement.executeUpdate();
-            PreparedStatement ps = connection.prepareStatement("SELECT s_id FROM suppiler WHERE s_name = \"" + f_cusName.getText() + "\";");
-            ResultSet s_id = ps.executeQuery();
-            s_id.next();
-            sql = "INSERT INTO order_ctm VALUES (?,?,?,?);";
+            PreparedStatement ps = connection.prepareStatement("SELECT c_id FROM customer WHERE c_name = \"" + f_cusName.getText() + "\";");
+            ResultSet c_id = ps.executeQuery();
+            c_id.next();
+            sql = "INSERT INTO order_customer VALUES (?,?,?,?);";
             preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, f_l_id.getText());
-            preparedStatement.setString(2, s_id.getString(1));
-            preparedStatement.setString(3, f_l_got_date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            preparedStatement.setString(2, c_id.getString(1));
+            preparedStatement.setString(3, f_l_pay_date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             preparedStatement.setString(4, f_l_save_date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             preparedStatement.executeUpdate();
 
@@ -115,7 +120,7 @@ public class AddOrderCtmController {
                 preparedStatement.setString(2, a.getProductId());
                 preparedStatement.executeUpdate();
 
-                sql = "INSERT INTO sale_list (sa_amount, oc_id, pd_id) VALUES (?,?,?);";
+                sql = "INSERT INTO sale_list (sale_amount, oc_id, pd_id) VALUES (?,?,?);";
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, String.valueOf(a.getAmount()));
                 preparedStatement.setString(2, f_l_id.getText());
