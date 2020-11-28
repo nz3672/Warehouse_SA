@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddOrderCtmController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddOrderCtmController">
    <children>
       <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
         <content>
@@ -64,11 +63,11 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="f_cusAddress" layoutX="100.0" layoutY="310.0" prefHeight="105.0" prefWidth="173.0" wrapText="true">
+                              <TextField fx:id="f_cusAddress" layoutX="100.0" layoutY="310.0" prefHeight="105.0" prefWidth="173.0">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>
-                              </TextArea>
+                              </TextField>
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="429.0" prefWidth="480.0" style="-fx-background-color: #e2efff;">

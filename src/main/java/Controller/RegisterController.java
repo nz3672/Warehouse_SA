@@ -40,7 +40,7 @@ public class RegisterController {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.next()) {
-                String sql = "INSERT INTO employee VALUES (?, ?, ?, ?, ?);";
+                String sql = "INSERT INTO employee VALUES (?, ?, ?, ?);";
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, userID.getEmployeeId());
                 preparedStatement.setString(2, userID.getName());

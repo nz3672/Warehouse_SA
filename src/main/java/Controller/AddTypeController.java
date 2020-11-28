@@ -32,13 +32,12 @@ public class AddTypeController {
     TableColumn<Type,String> t_idType, t_nameType;
     @FXML
     TextField nameType,idType;
-
+    @FXML
     ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
 
     private Type type;
     private Connection connection;
 
-    @FXML
     public void initialize(){
         ConnectionHandler connectionHandler = new ConnectionHandler();
         connection = connectionHandler.getConnection();
