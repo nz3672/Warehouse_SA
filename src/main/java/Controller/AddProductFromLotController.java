@@ -60,7 +60,8 @@ public class AddProductFromLotController {
                     PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM warehouse");
                     ResultSet rec = preparedStatement.executeQuery();
                     while (rec.next()) {
-                        Warehouse data = new Warehouse(rec.getString(1), rec.getString(2), rec.getString(3), rec.getString(4));
+                        Warehouse data = new Warehouse(rec.getString(2), rec.getString(3), rec.getString(4), rec.getString(5));
+                        data.setId(rec.getString(1));
                         warehouseList.add(data.toString());
                     }
                 } catch (SQLException e) {
@@ -96,9 +97,11 @@ public class AddProductFromLotController {
         Connection connection = connectionHandler.getConnection();
             product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()),"date");
         if (f_new_wh.isSelected()){
-            String[] warehouseDetails = chooseWh.getValue().toString().split(" ");// extract warehouse details from warehouseobservable list
-            //System.out.println(warehouseDetails[1] + warehouseDetails[3] + warehouseDetails[5] + warehouseDetails[7]);
-           whList = new WarehouseList(new Warehouse(warehouseDetails[1], warehouseDetails[3], warehouseDetails[5], warehouseDetails[7]),product);
+            String[] warehouseID = chooseWh.getValue().toString().split(" ");// extract warehouse details from warehouseobservable list
+            String[] warehouseDetails = warehouseID[1].split(",");
+            Warehouse warehouse = new Warehouse(warehouseDetails[0], warehouseDetails[1], warehouseDetails[2],warehouseDetails[3]);
+            warehouse.setId(warehouseID[0]);
+           whList = new WarehouseList(warehouse, product);
         }
         Button btnSubToLot = (Button) actionEvent.getSource();
         Stage stage = (Stage) btnSubToLot.getScene().getWindow();

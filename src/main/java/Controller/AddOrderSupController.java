@@ -86,7 +86,7 @@ public class AddOrderSupController {
         AddProductFromLotController addProductController = fxmlLoader.getController();
         stage.showAndWait();
 
-        if (product !=null && warehouseList != null) {
+        if (product !=null || warehouseList != null) {
             System.out.println(warehouseListArrayList.size());
             warehouseListArrayList.add(warehouseList);
             productObservableList.add(product);
@@ -128,7 +128,7 @@ public class AddOrderSupController {
                 preparedStatement.setString(1, a.getProductId());
                 ResultSet rec = preparedStatement.executeQuery();
                 rec.next();
-                double productsum = rec.getDouble(1) + a.getAmount();
+                int productsum = rec.getInt(1) + a.getAmount();
                 sql = "UPDATE product SET pd_amount = ? WHERE pd_id = ?;";
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, String.valueOf(productsum));
@@ -148,8 +148,7 @@ public class AddOrderSupController {
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1, a.getWarehouse().getId());
                 preparedStatement.setString(2, a.getProduct().getProductId());
-                ResultSet rec = preparedStatement.executeQuery();
-                rec.next();
+                preparedStatement.executeUpdate();
             }
             setNotic setNotic = new setNoticClass();
             setNotic.showNotic("เพิ่มรายการสั่งซื้อสำเร็จ","Success!");

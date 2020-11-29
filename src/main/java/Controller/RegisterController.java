@@ -25,6 +25,11 @@ public class RegisterController {
     UserID userID;
     private PasswordBCrypt pwdBcrypt;
 
+    @FXML
+    public void initialize(){
+        this.rank();
+    }
+
     public void btnRegister(ActionEvent actionEvent) throws IOException, SQLException {
         if (checkEmpty() == true){
             userID = new UserID(f_em_id.getText(),f_em_name.getText()
@@ -78,8 +83,8 @@ public class RegisterController {
     public ToggleGroup rank(){
         setToggle setToggle = new setToggleClass();
         ToggleGroup toggleGroup = new ToggleGroup();
-        setToggle.setToggle(checkInvt,"Manager",toggleGroup);
-        setToggle.setToggle(checkMana,"Inventory",toggleGroup);
+        setToggle.setToggle(checkMana,"Manager",toggleGroup);
+        setToggle.setToggle(checkInvt,"Inventory",toggleGroup);
         return  toggleGroup;
     }
     public String selectedRank(){

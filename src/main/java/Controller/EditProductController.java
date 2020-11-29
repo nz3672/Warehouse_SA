@@ -50,7 +50,7 @@ public class EditProductController { //หน้านี้จะถูกก�
         this.connection = connectionHandler.getConnection();
         Platform.runLater(new Runnable() {
             public void run() {
-                idNameWh.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getId()));
+                idNameWh.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getName()));
                 levelWh.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getLevel()));
                 nameShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getShelf()));
                 levelShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w ) -> new SimpleStringProperty(w.getValue().getShelfLevel()));
@@ -62,7 +62,9 @@ public class EditProductController { //หน้านี้จะถูกก�
                         preparedStatement.setString(1, getwh_id.getString(1));
                         ResultSet getwarehouse = preparedStatement.executeQuery();
                         getwarehouse.next();
-                        warehouseObservableList.add(new Warehouse(getwarehouse.getString(1),getwarehouse.getString(2),getwarehouse.getString(3),getwarehouse.getString(4)));
+                        Warehouse warehouse = new Warehouse(getwarehouse.getString(2),getwarehouse.getString(3),getwarehouse.getString(4),getwarehouse.getString(5));
+                        warehouse.setId(getwarehouse.getString(1));
+                        warehouseObservableList.add(warehouse);
                     }
 
                 } catch (SQLException e) {
@@ -105,6 +107,7 @@ public class EditProductController { //หน้านี้จะถูกก�
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, f_p_id.getText());
         preparedStatement.setString(2, warehouseObservableList.get(t_warehouse.getSelectionModel().getSelectedIndex()).getId());
+        System.out.println(warehouseObservableList.get(t_warehouse.getSelectionModel().getSelectedIndex()).getId());
         preparedStatement.executeUpdate();
         t_warehouse.getItems().removeAll(t_warehouse.getSelectionModel().getSelectedItem());
 

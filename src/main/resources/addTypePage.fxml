@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddTypeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddTypeController">
    <children>
       <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
         <content>
@@ -22,15 +22,15 @@
                      <children>
                         <AnchorPane prefHeight="427.0" prefWidth="294.0" style="-fx-background-color: white;">
                            <children>
-                              <TableView fx:id="t_Type" layoutX="4.0" layoutY="6.0" prefHeight="413.0" prefWidth="504.0">
+                              <TableView fx:id="t_Type" layoutX="-2.0" layoutY="-1.0" prefHeight="430.0" prefWidth="510.0">
                                 <columns>
                                   <TableColumn fx:id="t_idType" prefWidth="169.2222442626953" text="รหัสประเภทสินค้า" />
-                                  <TableColumn fx:id="t_nameType" prefWidth="333.7777557373047" text="ประเภทสินค้า" />
+                                  <TableColumn fx:id="t_nameType" prefWidth="339.0" text="ประเภทสินค้า" />
                                 </columns>
                               </TableView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="427.0" prefWidth="260.0" style="-fx-background-color: CDF2FF;">
+                        <AnchorPane prefHeight="427.0" prefWidth="285.0" style="-fx-background-color: CDF2FF;">
                            <children>
                               <TextField fx:id="nameType" layoutX="24.0" layoutY="103.0" prefHeight="25.0" prefWidth="206.0">
                                  <font>
@@ -47,7 +47,7 @@
                                     <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="idType" layoutX="24.0" layoutY="208.0" prefHeight="25.0" prefWidth="206.0">
+                              <TextField fx:id="idType" disable="true" layoutX="24.0" layoutY="208.0" prefHeight="25.0" prefWidth="206.0">
                                  <font>
                                     <Font name="TH SarabunPSK" size="24.0" />
                                  </font>
@@ -70,12 +70,7 @@
             <Font name="TH SarabunPSK Bold" size="64.0" />
          </font>
       </Label>
-      <Button layoutX="596.0" layoutY="530.0" mnemonicParsing="false" onAction="#btnSubmit" style="-fx-background-color: white;" text="ยืนยันการเพิ่มทั้งหมดทั้งหมด" textFill="#2e64a2">
-         <font>
-            <Font name="TH SarabunPSK Bold" size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="back_btn" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: #2e64a2;">
+      <Button fx:id="back_btn" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnBack" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: #2e64a2;">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>

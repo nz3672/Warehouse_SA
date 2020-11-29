@@ -110,6 +110,7 @@ public class AddProductController {
             if (!rs.next() && checkpID) {
                 product = new Product(f_p_id.getText(), f_p_name.getText(),
                         Integer.parseInt(f_p_price.getText()), f_p_save_date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                product.setType(f_type.getValue().toString());
                 productObservableList.add(product);
                 f_product.setItems(productObservableList);
             } else {

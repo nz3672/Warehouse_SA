@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.RadioButton?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
    <children>
       <Button fx:id="history" layoutX="819.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnLotsHistory" style="-fx-background-color: #2e64a2;" styleClass="history" />
@@ -26,7 +27,7 @@
             <Font name="TH SarabunPSK Bold Italic" size="18.0" />
          </font>
       </Hyperlink>
-      <Button fx:id="btnGoToLotPage" layoutX="229.0" layoutY="69.0" mnemonicParsing="false" onAction="#btnGotoLotPage" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: white;" text="เพิ่มคลังสินค้า" textFill="#2e64a2">
+      <Button fx:id="btnGoToLotPage" layoutX="229.0" layoutY="69.0" mnemonicParsing="false" onAction="#btnAddWarehouse" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: white;" text="เพิ่มคลังสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
@@ -68,16 +69,16 @@
                   <Font name="TH SarabunPSK Bold" size="16.0" />
                </font>
             </Label>
-            <CheckBox fx:id="lowToHigh" layoutX="42.0" layoutY="64.0" mnemonicParsing="false" text="น้อย-มาก">
+            <RadioButton fx:id="lowToHigh" layoutX="42.0" layoutY="64.0" mnemonicParsing="false" text="น้อย-มาก">
                <font>
                   <Font name="TH SarabunPSK Bold" size="16.0" />
                </font>
-            </CheckBox>
-            <CheckBox fx:id="highToLow" layoutX="42.0" layoutY="90.0" mnemonicParsing="false" text="มาก-น้อย">
+            </RadioButton>
+            <RadioButton fx:id="highToLow" layoutX="42.0" layoutY="90.0" mnemonicParsing="false" text="มาก-น้อย">
                <font>
                   <Font name="TH SarabunPSK Bold" size="16.0" />
                </font>
-            </CheckBox>
+            </RadioButton>
             <Button fx:id="btnFilter" layoutX="65.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="39.0" prefWidth="59.0" style="-fx-background-color: CDF2FF;" text="Go" textFill="#2e537d">
                <font>
                   <Font name="TH SarabunPSK Bold" size="18.0" />
@@ -95,7 +96,7 @@
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnGoToAddProduct1" layoutX="664.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnGoToAddProduct" prefHeight="39.0" prefWidth="216.0" style="-fx-background-color: white;" text="เพิ่มประเภทสินค้า" textFill="#2e64a2">
+      <Button fx:id="btnGoToAddProduct1" layoutX="664.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnAddType" prefHeight="39.0" prefWidth="216.0" style="-fx-background-color: white;" text="เพิ่มประเภทสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
@@ -114,7 +115,7 @@
                       <TableColumn fx:id="t_nameWH" prefWidth="193.44442749023438" text="ชื่อของ warehouse" />
                       <TableColumn fx:id="t_levelWH" minWidth="0.0" prefWidth="127.22216796875" text="ชั้นของ warehouse" />
                         <TableColumn fx:id="t_nameShelf" prefWidth="183.77783203125" text="ชื่อของ Shelf" />
-                        <TableColumn fx:id="t_levelShelf" prefWidth="129.33331298828125" text="ชั้นของ shelft" />
+                        <TableColumn fx:id="t_levelShelf" prefWidth="129.33331298828125" text="ชั้นของ shelf" />
                     </columns>
                   </TableView>
                </children>

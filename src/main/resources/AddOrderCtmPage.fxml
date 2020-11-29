@@ -100,7 +100,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="f_l_save_date" layoutX="194.0" layoutY="-6.0" prefHeight="45.0" prefWidth="225.0" />
+                                    <DatePicker fx:id="f_l_save_date" disable="true" layoutX="194.0" layoutY="-6.0" prefHeight="45.0" prefWidth="225.0" />
                                     <DatePicker fx:id="f_l_pay_date" layoutX="194.0" layoutY="56.0" prefHeight="45.0" prefWidth="228.0" />
                                  </children>
                               </AnchorPane>

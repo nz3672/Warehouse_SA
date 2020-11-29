@@ -1,43 +1,34 @@
-package Objects;
+package Warehouse;
 
 public class Product {
     private String productId;
     private String name;
     private double price;
     private String type;
-    private Warehouse Warehouse;
-    private int amount;
+    private String inventoryName;
+    private double amount;
     private String saveDate;
 
-    public Product(String productId, String name, double price, String type, Warehouse Warehouse, String saveDate) {
+    public Product(String productId, String name, double price, String type, String inventoryName, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.price = price;
         this.type = type;
-        this.Warehouse = Warehouse;
+        this.inventoryName = inventoryName;
         this.saveDate = saveDate;
     }
 
-    public Product(String productId, int amount, String name, Warehouse Warehouse, String type, double price, String saveDate) {
+    public Product(String productId,double amount,String name,  String inventoryName,String type, double price, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.price = price;
         this.type = type;
-        this.Warehouse = Warehouse;
+        this.inventoryName = inventoryName;
         this.saveDate = saveDate;
         this.amount = amount;
     }
 
-    public Product(String productId, String name, double price, String type, int amount, String saveDate) {
-        this.productId = productId;
-        this.name = name;
-        this.price = price;
-        this.type = type;
-        this.amount = amount;
-        this.saveDate = saveDate;
-    }
-
-    public Product(String productId, String name, int amount, String saveDate) {
+    public Product(String productId, String name, double amount, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.amount = amount;
@@ -60,11 +51,11 @@ public class Product {
         this.type = type;
     }
 
-    public void setWarehouse(Warehouse warehouse) {
-        this.Warehouse = warehouse;
+    public void setInventoryName(String inventoryName) {
+        this.inventoryName = inventoryName;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -84,11 +75,11 @@ public class Product {
         return type;
     }
 
-    public Warehouse getWarehouse() {
-        return Warehouse;
+    public String getInventoryName() {
+        return inventoryName;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 

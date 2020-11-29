@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 public class EditUserController {
     @FXML
-    TextField f_em_name,f_em_username, f_em_password, f_em_id;
+    TextField f_em_name,f_em_username, f_em_password, f_em_id, f_em_rank;
 
     UserID user;
     public void initialize() {
@@ -33,6 +33,7 @@ public class EditUserController {
                 f_em_name.setText(user.getName());
                 f_em_id.setText(user.getEmployeeId());
                 f_em_username.setText(user.getUsername());
+                f_em_rank.setText(user.getRank());
             }
         });
     }
@@ -58,11 +59,11 @@ public class EditUserController {
             hashed = passwordBCrypt.getHashed();
         }
 
-        //user = new UserID(f_em_id.getText(), f_em_name.getText(), f_em_username.getText(), hashed);
+        user = new UserID(f_em_id.getText(), f_em_name.getText(), f_em_username.getText(), hashed, f_em_rank.getText());
         ConnectionHandler connectionHandler = new ConnectionHandler();
         Connection connection = connectionHandler.getConnection();
 
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE employee SET Em_name = ?, Em_username = ?, Em_password = ? WHERE Em_id = ?;");
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE employee SET em_name = ?, em_username = ?, em_pwd = ? WHERE em_id = ?;");
         preparedStatement.setString(1, user.getName());
         preparedStatement.setString(2, user.getUsername());
         preparedStatement.setString(3, user.getPassword());
@@ -103,7 +104,7 @@ public class EditUserController {
             Stage stage = (Stage) btn.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/loginPage.fxml"));
             stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
-            LoginController Controller = fxmlLoader.getController();
+            LoginController LoginController = fxmlLoader.getController();
             stage.show();
         }
     }

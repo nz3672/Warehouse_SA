@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditProductController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditProductController">
    <children>
       <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
         <content>
@@ -56,7 +56,7 @@
                                     <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="f_p_amount" layoutX="23.0" layoutY="338.0" prefHeight="25.0" prefWidth="203.0">
+                              <TextField fx:id="f_p_amount" disable="true" layoutX="23.0" layoutY="338.0" prefHeight="25.0" prefWidth="203.0">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>

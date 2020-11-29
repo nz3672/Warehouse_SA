@@ -46,7 +46,7 @@ public class AddWarehouseController {
         ConnectionHandler connectionHandler = new ConnectionHandler();
         connection = connectionHandler.getConnection();
 
-        //nameWH.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> p) -> new SimpleStringProperty(p.getValue().getName()));
+        nameWH.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> p) -> new SimpleStringProperty(p.getValue().getName()));
         levelWH.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> p) -> new SimpleStringProperty(p.getValue().getLevel()));
         nameShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> p) -> new SimpleStringProperty(p.getValue().getShelf()));
         levelShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> p) -> new SimpleStringProperty(p.getValue().getShelfLevel()));
@@ -67,7 +67,7 @@ public class AddWarehouseController {
                         ps.setString(4,getWarehouse.getString(5));
                         ResultSet rec = ps.executeQuery();
                         rec.next();
-                        //warehouse.setId(rec.getString(1));
+                        warehouse.setId(rec.getString(1));
                         warehouseObservableList.add(warehouse);
                     }
                     t_warehouse.setItems(warehouseObservableList);
@@ -117,7 +117,7 @@ public class AddWarehouseController {
         stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
         HomeController controller = fxmlLoader.getController();
         controller.setUser(user);
-        stage.show();
+        stage.close();
     }
 
 
@@ -151,7 +151,7 @@ public class AddWarehouseController {
             ps.setString(4,getWarehouse.getString(5));
             ResultSet rec = ps.executeQuery();
             rec.next();
-            //warehouse.setId(rec.getString(1));
+            warehouse.setId(rec.getString(1));
             warehouseObservableList.add(warehouse);}
         t_warehouse.setItems(warehouseObservableList);
     }
