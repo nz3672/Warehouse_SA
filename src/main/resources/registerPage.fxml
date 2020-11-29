@@ -10,59 +10,47 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
    <children>
-      <ImageView fitHeight="729.0" fitWidth="449.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="428.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Picture/banner.jpg" />
          </image>
       </ImageView>
-    <AnchorPane layoutX="446.0" minHeight="0.0" minWidth="0.0" prefHeight="607.0" prefWidth="455.0" style="-fx-background-color: #ffffff;">
+    <AnchorPane layoutX="298.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="305.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Button id="submit" fx:id="regist" layoutX="287.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnRegister" prefHeight="50.0" prefWidth="132.0" style="-fx-background-color: #2e64a2;" text="สมัครสมาชิก" textFill="WHITE">
+            <Button id="submit" fx:id="regist" layoutX="94.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnRegister" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #2e64a2;" text="สมัครสมาชิก" textFill="WHITE">
                <font>
                   <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>
             </Button>
-            <Label layoutX="92.0" layoutY="91.0" prefHeight="51.0" prefWidth="129.0" text="ชื่อ-นามสกุล">
+            <Label layoutX="44.0" layoutY="47.0" text="ชื่อ-นามสกุล">
                <font>
-                  <Font size="24.0" />
+                  <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="f_em_name" layoutX="92.0" layoutY="138.0" prefHeight="25.0" prefWidth="238.0">
+            <TextField fx:id="f_em_name" layoutX="44.0" layoutY="70.0" prefHeight="25.0" prefWidth="238.0" />
+            <TextField fx:id="f_em_id" layoutX="44.0" layoutY="128.0" prefHeight="25.0" prefWidth="238.0" />
+            <TextField fx:id="f_em_username" layoutX="44.0" layoutY="183.0" prefHeight="25.0" prefWidth="238.0" />
+            <PasswordField fx:id="f_em_password" layoutX="44.0" layoutY="242.0" prefHeight="25.0" prefWidth="238.0" />
+            <Label layoutX="44.0" layoutY="105.0" text="รหัสพนักงาน">
                <font>
-                  <Font size="18.0" />
-               </font></TextField>
-            <TextField fx:id="f_em_id" layoutX="95.0" layoutY="222.0" prefHeight="25.0" prefWidth="238.0">
-               <font>
-                  <Font size="18.0" />
-               </font></TextField>
-            <TextField fx:id="f_em_username" layoutX="98.0" layoutY="303.0" prefHeight="38.0" prefWidth="238.0" />
-            <PasswordField fx:id="f_em_password" layoutX="100.0" layoutY="386.0" prefHeight="38.0" prefWidth="238.0" />
-            <Label layoutX="92.0" layoutY="186.0" text="รหัสพนักงาน">
-               <font>
-                  <Font size="24.0" />
+                  <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="95.0" layoutY="273.0" text="Username">
+            <Label layoutX="44.0" layoutY="160.0" text="Username">
                <font>
-                  <Font size="24.0" />
+                  <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="96.0" layoutY="350.0" text="Password">
+            <Label layoutX="44.0" layoutY="219.0" text="Password">
                <font>
-                  <Font size="24.0" />
+                  <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>
             </Label>
             <Button fx:id="back_btn" layoutX="7.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: white;" />
-            <RadioButton fx:id="checkMana" layoutX="101.0" layoutY="441.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="186.0" text="Manager">
-               <font>
-                  <Font size="18.0" />
-               </font></RadioButton>
-            <RadioButton fx:id="checkInvt" layoutX="101.0" layoutY="478.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Inventory">
-               <font>
-                  <Font size="18.0" />
-               </font></RadioButton>
+            <RadioButton fx:id="checkMana" layoutX="44.0" layoutY="283.0" mnemonicParsing="false" text="Manager" />
+            <RadioButton fx:id="checkInvt" layoutX="44.0" layoutY="309.0" mnemonicParsing="false" text="Inventory" />
          </children>
       </AnchorPane>
    </children>

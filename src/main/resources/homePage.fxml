@@ -26,7 +26,7 @@
             <Font name="TH SarabunPSK Bold Italic" size="18.0" />
          </font>
       </Hyperlink>
-      <Button fx:id="btnGoToLotPage" layoutX="229.0" layoutY="69.0" mnemonicParsing="false" onAction="#btnAddWarehouse" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: white;" text="เพิ่มคลังสินค้า" textFill="#2e64a2">
+      <Button fx:id="btnGoToLotPage" layoutX="229.0" layoutY="69.0" mnemonicParsing="false" onAction="#btnGotoLotPage" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: white;" text="เพิ่มคลังสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
@@ -95,7 +95,7 @@
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnGoToAddProduct1" layoutX="664.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnAddType" prefHeight="39.0" prefWidth="216.0" style="-fx-background-color: white;" text="เพิ่มประเภทสินค้า" textFill="#2e64a2">
+      <Button fx:id="btnGoToAddProduct1" layoutX="664.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnGoToAddProduct" prefHeight="39.0" prefWidth="216.0" style="-fx-background-color: white;" text="เพิ่มประเภทสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="18.0" />
          </font>
@@ -114,7 +114,7 @@
                       <TableColumn fx:id="t_nameWH" prefWidth="193.44442749023438" text="ชื่อของ warehouse" />
                       <TableColumn fx:id="t_levelWH" minWidth="0.0" prefWidth="127.22216796875" text="ชั้นของ warehouse" />
                         <TableColumn fx:id="t_nameShelf" prefWidth="183.77783203125" text="ชื่อของ Shelf" />
-                        <TableColumn fx:id="t_levelShelf" prefWidth="129.33331298828125" text="ชั้นของ shelf" />
+                        <TableColumn fx:id="t_levelShelf" prefWidth="129.33331298828125" text="ชั้นของ shelft" />
                     </columns>
                   </TableView>
                </children>

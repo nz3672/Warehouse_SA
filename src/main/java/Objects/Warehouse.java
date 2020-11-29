@@ -2,20 +2,15 @@ package Objects;
 
 public class Warehouse {
     private String id;
-    private String name;
     private String level;
     private String shelf;
     private String shelfLevel;
 
-    public Warehouse(String name, String level, String shelf, String shelfLevel) {
-        this.name = name;
+    public Warehouse(String id, String level, String shelf, String shelfLevel) {
+        this.id = id;
         this.level = level;
         this.shelf = shelf;
         this.shelfLevel = shelfLevel;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public void setLevel(String level) {
@@ -24,14 +19,6 @@ public class Warehouse {
 
     public void setShelf(String shelf) {
         this.shelf = shelf;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setShelfLevel(String shelfLevel) {
@@ -56,7 +43,7 @@ public class Warehouse {
 
     @Override
     public String toString() {
-        return "id= " + id + ' ' + ",name= "+name+
+        return "id= " + id + ' ' +
                 ",level= " + level + ' ' +
                 ",shelf= " + shelf + ' ' +
                 ",shelfLevel= " + shelfLevel + ' ' +

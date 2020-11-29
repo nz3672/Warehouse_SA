@@ -65,7 +65,7 @@ public class OrderCtmHistoryController {
                     else {
                         rec.previous();
                         while (rec.next()) {
-                            ResultSet getOrder = connection.createStatement().executeQuery("SELECT * FROM order_customer WHERE oc_id = \""+ rec.getString(4)+"\"");
+                            ResultSet getOrder = connection.createStatement().executeQuery("SELECT * FROM order_customer WHERE oc_id = \""+ rec.getString(3)+"\"");
                             getOrder.next();
                             ResultSet getCustomer = connection.createStatement().executeQuery("SELECT * FROM customer WHERE c_id = " + getOrder.getString(2));
                             getCustomer.next();

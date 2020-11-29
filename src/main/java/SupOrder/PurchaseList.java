@@ -27,7 +27,7 @@ public class PurchaseList {
         getProduct.next();
         ResultSet getType = connection.createStatement().executeQuery("SELECT t_name FROM type WHERE t_id = \""+getProduct.getString(6)+"\"");
         getType.next();
-        this.product = new Product(getProduct.getString(1),getProduct.getString(2), Double.parseDouble(getProduct.getString(3)), getType.getString(1),  Integer.parseInt(getProduct.getString(4)), getProduct.getString(5));
+        //this.product = new Product(getProduct.getString(1),getProduct.getString(2), Double.parseDouble(getProduct.getString(3)), getType.getString(1),  Integer.parseInt(getProduct.getString(4)), getProduct.getString(5));
     }
 
     public PurchaseList(String id, Product product, int pAmount) {

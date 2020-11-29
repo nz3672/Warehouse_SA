@@ -106,7 +106,7 @@ public class AddProductController {
                 break;
             }
         }
-        if (f_p_id.getText().equals(" ") || f_p_name.getText().equals(" ") || f_p_price.getText().equals(" ")) {
+        if (!f_p_id.getText().equals(" ") || !f_p_name.getText().equals(" ") || !f_p_price.getText().equals(" ")) {
             if (!rs.next() && checkpID) {
                 product = new Product(f_p_id.getText(), f_p_name.getText(),
                         Integer.parseInt(f_p_price.getText()), f_p_save_date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));

@@ -128,7 +128,7 @@ public class AddOrderSupController {
                 preparedStatement.setString(1, a.getProductId());
                 ResultSet rec = preparedStatement.executeQuery();
                 rec.next();
-                int productsum = rec.getInt(1) + a.getAmount();
+                double productsum = rec.getDouble(1) + a.getAmount();
                 sql = "UPDATE product SET pd_amount = ? WHERE pd_id = ?;";
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, String.valueOf(productsum));
