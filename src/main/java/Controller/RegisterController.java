@@ -78,8 +78,8 @@ public class RegisterController {
     public ToggleGroup rank(){
         setToggle setToggle = new setToggleClass();
         ToggleGroup toggleGroup = new ToggleGroup();
-        setToggle.setToggle(checkInvt,"Manager",toggleGroup);
-        setToggle.setToggle(checkMana,"Inventory",toggleGroup);
+        setToggle.setToggle(checkMana,"Manager",toggleGroup);
+        setToggle.setToggle(checkInvt,"Inventory",toggleGroup);
         return  toggleGroup;
     }
     public String selectedRank(){

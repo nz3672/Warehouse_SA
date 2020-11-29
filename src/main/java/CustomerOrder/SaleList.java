@@ -20,10 +20,10 @@ public class SaleList {
         this.amount = amount;
         ConnectionHandler connectionHandler = new ConnectionHandler();
         Connection connection = connectionHandler.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM sale_list WHERE pu_id = \"" + id + "\"");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM sale_list WHERE sale_id = \"" + id + "\"");
         ResultSet resultSet = preparedStatement.executeQuery();
         resultSet.next();
-        ResultSet getProduct = connection.createStatement().executeQuery("SELECT * FROM product WHERE pd_id = \""+resultSet.getString(4)+"\"");
+        ResultSet getProduct = connection.createStatement().executeQuery("SELECT * FROM product WHERE pd_id = \""+resultSet.getString(3)+"\"");
         getProduct.next();
         ResultSet getType = connection.createStatement().executeQuery("SELECT t_name FROM type WHERE t_id = \""+getProduct.getString(6)+"\"");
         getType.next();

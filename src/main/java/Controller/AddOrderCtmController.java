@@ -113,10 +113,10 @@ public class AddOrderCtmController {
                 preparedStatement.setString(1, a.getProductId());
                 ResultSet rec = preparedStatement.executeQuery();
                 rec.next();
-                double productsum = rec.getDouble(1) + a.getAmount();
+                int productdiff = rec.getInt(1) - a.getAmount();
                 sql = "UPDATE product SET pd_amount = ? WHERE pd_id = ?;";
                 preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, String.valueOf(productsum));
+                preparedStatement.setString(1, String.valueOf(productdiff));
                 preparedStatement.setString(2, a.getProductId());
                 preparedStatement.executeUpdate();
 

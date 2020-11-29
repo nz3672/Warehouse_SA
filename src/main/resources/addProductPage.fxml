@@ -34,11 +34,6 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="427.0" prefWidth="236.0" style="-fx-background-color: CDF2FF;">
                            <children>
-                              <Label layoutX="32.0" layoutY="21.0" text="สถานที่จัดเก็บ" textFill="#2e64a2">
-                                 <font>
-                                    <Font name="TH SarabunPSK Bold" size="26.0" />
-                                 </font>
-                              </Label>
                               <Label layoutX="16.0" layoutY="68.0" text="ประเภท" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
