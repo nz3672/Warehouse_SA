@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditProductController">
+   <children>
+      <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="777.0">
+               <children>
+                  <HBox prefHeight="427.0" prefWidth="777.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="427.0" prefWidth="279.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label layoutX="23.0" layoutY="123.0" text="รหัสสินค้า" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="22.0" layoutY="30.0" text="ชื่อสินค้า" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="f_p_name" layoutX="22.0" layoutY="65.0" prefHeight="51.0" prefWidth="203.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="f_p_id" disable="true" editable="false" layoutX="23.0" layoutY="161.0" prefHeight="51.0" prefWidth="203.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="18.0" layoutY="207.0" text="ราคาต่อหน่วย" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="24.0" layoutY="302.0" text="จำนวน" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="f_p_price" layoutX="23.0" layoutY="242.0" prefHeight="51.0" prefWidth="203.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="f_p_amount" disable="true" layoutX="23.0" layoutY="338.0" prefHeight="25.0" prefWidth="203.0">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="24.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="427.0" prefWidth="260.0" style="-fx-background-color: white;" />
+                        <AnchorPane prefHeight="427.0" prefWidth="769.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label layoutX="54.0" layoutY="19.0" text="สถานที่จัดเก็บ" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="submit_btn1" layoutX="16.0" layoutY="303.0" mnemonicParsing="false" onAction="#btnDeleteWareh" style="-fx-background-color: 0C58AB;" text="ยืนยันลบสถานที่จัดเก็บ" textFill="#2e64a2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker fx:id="f_p_save_date" disable="true" layoutX="113.0" layoutY="377.0" />
+                              <Label layoutX="51.0" layoutY="370.0" text="วันที่" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="t_warehouse" layoutX="14.0" layoutY="75.0" prefHeight="212.0" prefWidth="503.0">
+                                 <columns>
+                                    <TableColumn fx:id="idNameWh" prefWidth="150.0" text="ชื่อ warehouse" />
+                                    <TableColumn fx:id="levelWh" prefWidth="120.2222900390625" text="ชั้นของ warehouse" />
+                                    <TableColumn fx:id="nameShelf" prefWidth="130.7777099609375" text="ชื่อ shelf" />
+                                    <TableColumn fx:id="levelShelf" prefWidth="100.0" text="ชั้นของ shelf" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="340.0" layoutY="11.0" text="แก้ไขสินค้า" textFill="#fbff00">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="submit_btn" layoutX="330.0" layoutY="533.0" mnemonicParsing="false" onAction="#btnEditProduct" style="-fx-background-color: white;" text="แก้ไขสินค้า" textFill="#2e64a2">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="delete_btn" layoutX="452.0" layoutY="533.0" mnemonicParsing="false" onAction="#btnDeleteProduct" style="-fx-background-color: white;" text="ลบสินค้า" textFill="#d40000">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

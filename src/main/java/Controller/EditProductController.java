@@ -1,4 +1,4 @@
-package Controller;
+package Controller; //changed to qty
 
 import Connection.ConnectionHandler;
 import Objects.Product;
@@ -9,12 +9,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.springframework.security.core.parameters.P;
 import tool.*;
 
 import java.io.IOException;
@@ -38,10 +34,13 @@ public class EditProductController { //หน้านี้จะถูกก�
     TableView t_warehouse;
     @FXML
     TableColumn<Warehouse, String> idNameWh, levelWh, nameShelf, levelShelf;
+    @FXML
+    Button submit_btn1;
 
     public static Product product;
     private Warehouse warehouse;
     private Connection connection;
+    checkString checkString;
 
 
 
@@ -54,7 +53,7 @@ public class EditProductController { //หน้านี้จะถูกก�
                 levelWh.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getLevel()));
                 nameShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w) -> new SimpleStringProperty(w.getValue().getShelf()));
                 levelShelf.setCellValueFactory((TableColumn.CellDataFeatures<Warehouse, String> w ) -> new SimpleStringProperty(w.getValue().getShelfLevel()));
-
+                f_p_save_date.setValue(LocalDate.now());
                 try {
                     ResultSet getwh_id = connection.prepareStatement("SELECT wh_id FROM warehouselist WHERE pd_id = \""+ product.getProductId()+ "\";").executeQuery();
                     while (getwh_id.next()) {
@@ -77,7 +76,14 @@ public class EditProductController { //หน้านี้จะถูกก�
                 f_p_id.setText(product.getProductId());
                 f_p_name.setText(product.getName());
                 f_p_price.setText(String.valueOf(product.getPrice()));
-                f_p_amount.setText(String.valueOf(product.getAmount()));
+                f_p_amount.setText(String.valueOf(product.getQuantity()));
+                checkString = new checkStringClass();
+
+                if (warehouseObservableList.size() == 1){
+                    submit_btn1.setDisable(Integer.parseInt(f_p_amount.getText()) > 0);
+                } else if (warehouseObservableList.size() == 0) {
+                    submit_btn1.setDisable(true);
+                }
             }
         });
     }
@@ -114,16 +120,15 @@ public class EditProductController { //หน้านี้จะถูกก�
     }
 
     public void btnEditProduct(ActionEvent actionEvent) throws IOException, SQLException {
-        checkEmpty checkTextfieldEmpty = new CheckEmptyClass();
         setNotic setNotic = new setNoticClass();
-        if (setNotic.showComfirm("ต้องการแก้ไขสินค้าหรือไม่","Confirmation")) {
+        if (setNotic.showComfirm("ต้องการแก้ไขสินค้าหรือไม่","Confirmation") && checkString.checkString(f_p_name.getText()) && checkString.checkNum(f_p_price.getText())) {
 
             ConnectionHandler connectionHandler = new ConnectionHandler();
             Connection connection = connectionHandler.getConnection();
 
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-            String sql = "UPDATE product SET pd_amount = ?, pd_name = ?, pd_price = ?, pd_save_date = ? WHERE pd_id = ?;";
+            String sql = "UPDATE product SET pd_qty = ?, pd_name = ?, pd_price = ?, pd_save_date = ? WHERE pd_id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, String.valueOf(f_p_amount.getText()));
             preparedStatement.setString(2, f_p_name.getText());
@@ -136,6 +141,8 @@ public class EditProductController { //หน้านี้จะถูกก�
             Button btn = (Button) actionEvent.getSource();
             Stage stage = (Stage) btn.getScene().getWindow();
             stage.close();
+        } else if (checkString.checkString(f_p_name.getText()) || checkString.checkNum(f_p_price.getText())) {
+            setNotic.showNotic("กรุณากรอกข้อมูลให้ถูกต้อง","Error");
         }
     }
 

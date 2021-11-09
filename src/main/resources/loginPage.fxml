@@ -10,41 +10,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="469.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="554.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Picture/banner.jpg" />
          </image>
       </ImageView>
-    <AnchorPane layoutX="446.0" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="454.0" style="-fx-background-color: #ffffff;">
+    <AnchorPane layoutX="446.0" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="654.0" style="-fx-background-color: #ffffff;">
          <children>
-            <PasswordField id="password" fx:id="f_em_password" layoutX="179.0" layoutY="228.0" prefHeight="25.0" prefWidth="216.0">
+            <PasswordField id="password" fx:id="f_em_password" layoutX="275.0" layoutY="251.0" prefHeight="25.0" prefWidth="216.0">
                <font>
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <TextField id="username" fx:id="f_em_username" layoutX="178.0" layoutY="165.0" prefHeight="25.0" prefWidth="216.0">
+            <TextField id="username" fx:id="f_em_username" layoutX="275.0" layoutY="173.0" prefHeight="25.0" prefWidth="216.0">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="95.0" layoutY="172.0" text="Username">
+            <Label layoutX="192.0" layoutY="180.0" text="Username">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="98.0" layoutY="234.0" text="Password">
+            <Label layoutX="194.0" layoutY="257.0" text="Password">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button id="login" fx:id="login" layoutX="214.0" layoutY="303.0" mnemonicParsing="false" onAction="#btnLoginHandler" prefHeight="30.0" prefWidth="117.0" style="-fx-background-color: #2e64a2;" text="เข้าสู่ระบบ" textFill="WHITE">
+            <Button id="login" fx:id="login" layoutX="311.0" layoutY="324.0" mnemonicParsing="false" onAction="#btnLoginHandler" prefHeight="30.0" prefWidth="117.0" style="-fx-background-color: #2e64a2;" text="เข้าสู่ระบบ" textFill="WHITE">
                <font>
                   <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="register" layoutX="101.0" layoutY="304.0" onAction="#btnForRegis" text="สมัครสมาชิก" underline="true">
+            <Hyperlink fx:id="register" layoutX="197.0" layoutY="327.0" onAction="#btnForRegis" text="สมัครสมาชิก" underline="true">
                <font>
                   <Font name="TH SarabunPSK Bold" size="18.0" />
                </font>

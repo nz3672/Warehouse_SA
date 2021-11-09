@@ -9,75 +9,74 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditUserController">
    <children>
-      <Label layoutX="228.0" layoutY="85.0" text="รหัสพนักงาน" textFill="WHITE">
+      <Label layoutX="292.0" layoutY="86.0" text="รหัสพนักงาน" textFill="WHITE">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="f_em_id" disable="true" editable="false" layoutX="228.0" layoutY="128.0" prefHeight="25.0" prefWidth="465.0">
+      <TextField fx:id="f_em_id" disable="true" editable="false" layoutX="292.0" layoutY="129.0" prefHeight="25.0" prefWidth="465.0">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font></TextField>
-      <TextField fx:id="f_em_name" layoutX="228.0" layoutY="223.0" prefHeight="25.0" prefWidth="465.0">
+      <TextField fx:id="f_em_name" layoutX="292.0" layoutY="224.0" prefHeight="25.0" prefWidth="465.0">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font></TextField>
-      <TextField fx:id="f_em_username" layoutX="228.0" layoutY="317.0" prefHeight="46.0" prefWidth="465.0">
+      <TextField fx:id="f_em_username" disable="true" layoutX="292.0" layoutY="318.0" prefHeight="46.0" prefWidth="465.0">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font></TextField>
-      <PasswordField fx:id="f_em_password" layoutX="226.0" layoutY="410.0" prefHeight="46.0" prefWidth="465.0">
+      <PasswordField fx:id="f_em_password" layoutX="290.0" layoutY="411.0" prefHeight="46.0" prefWidth="465.0">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font></PasswordField>
-      <Label layoutX="228.0" layoutY="181.0" text="ชื่อ-นามสกุล" textFill="WHITE">
+      <Label layoutX="292.0" layoutY="182.0" text="ชื่อ-นามสกุล" textFill="WHITE">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="228.0" layoutY="274.0" text="Username" textFill="WHITE">
+      <Label layoutX="292.0" layoutY="275.0" text="Username" textFill="WHITE">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="227.0" layoutY="367.0" text="New Password" textFill="WHITE">
+      <Label layoutX="291.0" layoutY="368.0" text="New Password" textFill="WHITE">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnSubmit" layoutX="763.0" layoutY="512.0" mnemonicParsing="false" onAction="#btnSubmit" style="-fx-background-color: white;" text="ตกลง" textFill="#2e64a2">
+      <Button fx:id="btnSubmit" layoutX="827.0" layoutY="513.0" mnemonicParsing="false" onAction="#btnSubmit" style="-fx-background-color: white;" text="ตกลง" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnDeleteUser" layoutX="63.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnDeleteUser" style="-fx-background-color: white;" text="ลบบัญชี" textFill="#d40000">
+      <Button fx:id="btnDeleteUser" layoutX="127.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnDeleteUser" style="-fx-background-color: white;" text="ลบบัญชี" textFill="#d40000">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Button>
-      <Label layoutX="313.0" layoutY="9.0" prefHeight="71.0" prefWidth="340.0" text="ข้อมูลพนักงาน" textFill="#fbff00">
+      <Label layoutX="377.0" layoutY="10.0" prefHeight="71.0" prefWidth="340.0" text="ข้อมูลพนักงาน" textFill="#fbff00">
          <font>
             <Font size="57.0" />
          </font>
       </Label>
       <Button layoutX="26.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnBack" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: #2e64a2;" />
-      <Button fx:id="back_btn" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnBack" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: #2e64a2;">
+      <Button fx:id="back_btn" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnBack" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #2e64a2;">
          <graphic>
-            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="53.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Picture/previousw.png" />
                </image>
             </ImageView>
-         </graphic>
-      </Button>
-      <TextField fx:id="f_em_rank" disable="true" editable="false" layoutX="232.0" layoutY="499.0" prefHeight="51.0" prefWidth="458.0">
+         </graphic></Button>
+      <TextField fx:id="f_em_rank" disable="true" editable="false" layoutX="293.0" layoutY="500.0" prefHeight="51.0" prefWidth="461.0">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="237.0" layoutY="467.0" text="ตำแหน่ง" textFill="WHITE">
+      <Label layoutX="302.0" layoutY="466.0" text="ตำแหน่ง" textFill="WHITE">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>

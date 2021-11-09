@@ -3,13 +3,14 @@ package Controller;
 import Connection.ConnectionHandler;
 import User.UserID;
 import Objects.Product;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import tool.*;
@@ -39,6 +40,7 @@ public class AddProductController {
     UserID userID;
     Product product;
     ObservableList<String> group;
+    checkString checkString;
 
     public void initialize() {
         f_idProduct.setCellValueFactory((TableColumn.CellDataFeatures<Product, String> p) -> new SimpleStringProperty(p.getValue().getProductId()));
@@ -47,6 +49,7 @@ public class AddProductController {
         ConnectionHandler connectionHandler = new ConnectionHandler();
         connection = connectionHandler.getConnection();
 
+        checkString = new checkStringClass();
         f_p_save_date.setValue(LocalDate.now());
         //group choicbox by tong
         group = FXCollections.observableArrayList();
@@ -57,9 +60,7 @@ public class AddProductController {
 
     public void btnSubmit(ActionEvent actionEvent) throws IOException, SQLException {
 
-        if (productObservableList.size() != 0){
-
-
+        if (productObservableList.size() != 0) {
             DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
             String sql = "INSERT INTO product VALUES (?, ?, ?, ?, ?, ?);";
@@ -68,7 +69,7 @@ public class AddProductController {
                 preparedStatement.setString(1, String.valueOf(a.getProductId()));
                 preparedStatement.setString(2, a.getName());
                 preparedStatement.setString(3, String.valueOf(a.getPrice()));
-                preparedStatement.setString(4, String.valueOf(a.getAmount()));
+                preparedStatement.setString(4, String.valueOf(a.getQuantity()));
                 preparedStatement.setString(5, a.getSaveDate());
                 PreparedStatement getT_id = connection.prepareStatement("SELECT t_id FROM type WHERE t_name = \""+a.getType()+"\"");
                 ResultSet t_id = getT_id.executeQuery();
@@ -91,7 +92,8 @@ public class AddProductController {
         }
         else {
                 setNotic setNotic = new setNoticClass();
-                setNotic.showNotic("กรุณากรอกสินค้าที่จะเพิ่ม","Error");
+                setNotic.showNotic("กรุณาเพิ่มสินค้า เพื่อไปต่อ", "Error");
+
         }
     }
 
@@ -106,10 +108,10 @@ public class AddProductController {
                 break;
             }
         }
-        if (!f_p_id.getText().equals(" ") || !f_p_name.getText().equals(" ") || !f_p_price.getText().equals(" ")) {
+        if (this.checkTextfields() && f_type.getValue() != null) {
             if (!rs.next() && checkpID) {
-                product = new Product(f_p_id.getText(), f_p_name.getText(),
-                        Integer.parseInt(f_p_price.getText()), f_p_save_date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                product = new Product(f_p_id.getText(), f_p_name.getText(), Double.parseDouble(f_p_price.getText()),
+                        f_type.getValue().toString(), f_p_save_date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
                 product.setType(f_type.getValue().toString());
                 productObservableList.add(product);
                 f_product.setItems(productObservableList);
@@ -135,6 +137,24 @@ public class AddProductController {
             e.printStackTrace();
         }
         return group;
+    }
+
+    public void setUserID(UserID userID) {
+        this.userID = userID;
+    }
+
+    public boolean checkTextfields() {
+        if (!checkString.checkNum(f_p_price.getText())
+                || !checkString.checkString(f_p_name.getText(), ".-") || !checkString.checkString(f_p_id.getText(), "-.")) {
+            return false;
+        }
+        return true;
+    }
+
+    public void btnBack (ActionEvent actionEvent) throws IOException {
+        Button btn = (Button) actionEvent.getSource();
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
     }
 
     public void btnDeleteProduct(ActionEvent actionEvent){

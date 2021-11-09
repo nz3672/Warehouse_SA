@@ -13,11 +13,13 @@ public class SaleList {
     private OrderCustomer orderCustomer;
     private Product product;
     private int amount;
+    private double price;
 
-    public SaleList(String id, OrderCustomer orderCustomer, int amount) throws SQLException {
+    public SaleList(String id, OrderCustomer orderCustomer, int amount , double price) throws SQLException {
         this.id = id;
         this.orderCustomer = orderCustomer;
         this.amount = amount;
+        this.price = price;
         ConnectionHandler connectionHandler = new ConnectionHandler();
         Connection connection = connectionHandler.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM sale_list WHERE sale_id = \"" + id + "\"");
@@ -58,5 +60,9 @@ public class SaleList {
 
     public int getAmount() {
         return amount;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }

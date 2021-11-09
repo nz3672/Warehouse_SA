@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.springframework.util.StringUtils;
 import tool.*;
 
 import java.io.IOException;
@@ -24,9 +25,10 @@ public class RegisterController {
     RadioButton checkInvt, checkMana;
     UserID userID;
     private PasswordBCrypt pwdBcrypt;
-
+    checkString checkString;
     @FXML
     public void initialize(){
+        checkString = new checkStringClass();
         this.rank();
     }
 
@@ -45,28 +47,45 @@ public class RegisterController {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.next()) {
-                String sql = "INSERT INTO employee VALUES (?, ?, ?, ?, ?);";
-                preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, userID.getEmployeeId());
-                preparedStatement.setString(2, userID.getName());
-                preparedStatement.setString(3, userID.getUsername());
-                preparedStatement.setString(4, userID.getPassword());
-                preparedStatement.setString(5,userID.getRank()); // v2 by tong
-                preparedStatement.executeUpdate();
-                Button btn = (Button) actionEvent.getSource();
-                Stage stage = (Stage) btn.getScene().getWindow();
-                setNotic setNotic = new setNoticClass();
-                setNotic.showNotic("ลงทะเบียนสำเร็จ","Success!");
-                stage.close();
-            } else {
-                setNotic setNotic = new setNoticClass();
-                setNotic.showNotic("ชื่อผู้ใช้หรือรหัสพนักงานซ้ำ กรุณากรอกใหม่อีกครั้ง","Invalid ID");
+                if (!checkString.checkString(f_em_name.getText())
+                        || StringUtils.containsWhitespace(f_em_password.getText())
+                        || StringUtils.containsWhitespace(f_em_username.getText())
+                        || StringUtils.containsWhitespace(f_em_id.getText())
+                        || !checkString.checkString(f_em_id.getText())
+                        || !checkString.checkString(f_em_username.getText()) ){
+                        setNotic setNotic = new setNoticClass();
+                        setNotic.showNotic("กรุณากรอกข้อมูลให้ถูกต้อง","Error");
+                }
+                else if (!(f_em_password.getText().length()<=14 && f_em_password.getText().length()>=5)
+                        ||!(f_em_username.getText().length()<=10 && f_em_username.getText().length()>=5)
+                        || !(f_em_name.getText().length()<=100 && f_em_name.getText().length()>=1)){
+                    setNotic setNotic = new setNoticClass();
+                    setNotic.showNotic("ข้อมูลไม่ครบถ้วน","Error");
+                }
+                else {
+                    String sql = "INSERT INTO employee VALUES (?, ?, ?, ?, ?);";
+                    preparedStatement = connection.prepareStatement(sql);
+                    preparedStatement.setString(1, userID.getEmployeeId());
+                    preparedStatement.setString(2, userID.getName());
+                    preparedStatement.setString(3, userID.getUsername());
+                    preparedStatement.setString(4, userID.getPassword());
+                    preparedStatement.setString(5, userID.getRank()); // v2 by tong
+                    preparedStatement.executeUpdate();
+                    Button btn = (Button) actionEvent.getSource();
+                    Stage stage = (Stage) btn.getScene().getWindow();
+                    setNotic setNotic = new setNoticClass();
+                    setNotic.showNotic("ลงทะเบียนสำเร็จ", "Success!");
+                    stage.close();
+                }
             }
+                //else {
+                //setNotic setNotic = new setNoticClass();
+                //setNotic.showNotic("ชื่อผู้ใช้หรือรหัสพนักงานซ้ำ กรุณากรอกใหม่อีกครั้ง","Invalid ID");}
         }
         else {
             setNotic setNotic = new setNoticClass();
             setNotic.showNotic("กรุณากรอกข้อมูลให้ครบถ้วน","Error");
-            //textEmpty.setText("กรุณากรอกข้อมูลให้ครบถ้วน");
+                //textEmpty.setText("กรุณากรอกข้อมูลให้ครบถ้วน");
         }
     }
 

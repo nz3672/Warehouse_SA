@@ -18,6 +18,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import tool.checkString;
+import tool.checkStringClass;
 import tool.setNotic;
 import tool.setNoticClass;
 
@@ -26,6 +28,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 
 public class AddWarehouseController {
     @FXML
@@ -35,6 +39,7 @@ public class AddWarehouseController {
     @FXML
     TextField w_nameWH, w_levelWH, w_nameShelf, w_levelShelf;
 
+    List<TextField> textFields;
     ObservableList<Warehouse> warehouseObservableList = FXCollections.observableArrayList();
 
     private Type type;
@@ -57,6 +62,7 @@ public class AddWarehouseController {
                 try {
                     PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM warehouse");
                     ResultSet getWarehouse = preparedStatement.executeQuery();
+                    textFields = Arrays.asList(w_nameWH, w_levelWH, w_nameShelf, w_levelShelf);
 
                     while (getWarehouse.next()) {
                         Warehouse warehouse = new Warehouse(getWarehouse.getString(2), getWarehouse.getString(3), getWarehouse.getString(4), getWarehouse.getString(5));
@@ -79,14 +85,14 @@ public class AddWarehouseController {
         });
     }
 
-    public void btnAddType(ActionEvent actionEvent) throws IOException, SQLException {
+    public void btnAddWh(ActionEvent actionEvent) throws IOException, SQLException {
         PreparedStatement checkP_id = connection.prepareStatement("SELECT wh_id FROM warehouse WHERE wh_name = ? AND wh_level = ? AND wh_shelf = ? AND wh_shelf_level = ?");
         checkP_id.setString(1, w_nameWH.getText());
         checkP_id.setString(2, w_levelWH.getText());
         checkP_id.setString(3, w_nameShelf.getText());
         checkP_id.setString(4, w_levelShelf.getText());
         ResultSet rs = checkP_id.executeQuery();
-        if (!w_nameWH.getText().equals(" ") || !w_levelWH.getText().equals(" ") || !w_nameShelf.getText().equals(" ") || !w_levelShelf.getText().equals(" ")) {
+        if (this.checkText()) {
             if (!rs.next()) {
                 PreparedStatement addintotable = connection.prepareStatement("INSERT INTO warehouse (wh_name, wh_level, wh_shelf, wh_shelf_level) VALUES (?,?,?,?)");
                 addintotable.setString(1, w_nameWH.getText());
@@ -105,7 +111,7 @@ public class AddWarehouseController {
             }
         } else {
             setNotic setNotic = new setNoticClass();
-            setNotic.showNotic("กรุณากรอกข้อมูลให้ครบถ้วน2", "Error");
+            setNotic.showNotic("กรุณากรอกข้อมูลให้ถูกต้อง", "Error");
         }
 
     }
@@ -114,7 +120,7 @@ public class AddWarehouseController {
         Button btn = (Button) actionEvent.getSource();
         Stage stage = (Stage) btn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
-        stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
+        stage.setScene(new Scene((Parent)fxmlLoader.load(),1100,600));
         HomeController controller = fxmlLoader.getController();
         controller.setUser(user);
         stage.close();
@@ -158,5 +164,15 @@ public class AddWarehouseController {
 
     public void setUser(UserID user) {
         this.user = user;
+    }
+
+    public boolean checkText() {
+        checkString checkString = new checkStringClass();
+        for (TextField a : textFields) {
+            if (!checkString.checkString(a.getText())) {
+                return false;
+            }
+        }
+        return true;
     }
 }

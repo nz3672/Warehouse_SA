@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LotsHistoryController">
+   <children>
+      <ScrollPane layoutX="40.0" layoutY="101.0" prefHeight="430.0" prefWidth="820.0">
+         <content>
+            <TableView fx:id="historyProduct" prefHeight="428.0" prefWidth="818.0">
+              <columns>
+                <TableColumn fx:id="idOrder" prefWidth="77.0" text="รหัสการสั่งซื้อ" />
+                  <TableColumn fx:id="supName" prefWidth="145.0" text="ชื่อ suplier" />
+                  <TableColumn fx:id="supNum" prefWidth="115.0" text="เบอร์ติดต่อ supplier" />
+                  <TableColumn fx:id="dateSave" prefWidth="85.0" text="วันที่ได้รับสินค้า" />
+                  <TableColumn fx:id="dateRecieve" prefWidth="89.0" text="วันที่บันทึก" />
+                <TableColumn fx:id="idProducts" prefWidth="72.0" text="รหัสสินค้า" />
+                  <TableColumn fx:id="nameProducts" prefWidth="175.0" text="ชื่อสินค้า" />
+                  <TableColumn fx:id="amountProducts" prefWidth="59.0" text="จำนวน" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Label layoutX="261.0" layoutY="6.0" text="ประวัติการสั่งซื้อ" textFill="#fbff00">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="back_btn" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnBack" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: #2e64a2;">
+         <graphic>
+            <ImageView fx:id="btnBack" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Picture/previousw.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="noResult" layoutX="231.0" layoutY="534.0" textFill="WHITE">
+         <font>
+            <Font name="TH SarabunPSK Bold" size="26.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -14,25 +14,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddProductController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddProductController">
    <children>
-      <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
+      <ScrollPane layoutX="108.0" layoutY="85.0" prefHeight="430.0" prefWidth="884.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="777.0">
                <children>
-                  <HBox prefHeight="427.0" prefWidth="777.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox prefHeight="427.0" prefWidth="884.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-106.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane prefHeight="427.0" prefWidth="294.0" style="-fx-background-color: white;">
                            <children>
-                              <TableView fx:id="f_product" layoutX="4.0" layoutY="6.0" prefHeight="413.0" prefWidth="284.0">
+                              <TableView fx:id="f_product" layoutX="-3.0" layoutY="-1.0" prefHeight="430.0" prefWidth="358.0">
                                 <columns>
-                                  <TableColumn fx:id="f_idProduct" prefWidth="98.11112976074219" text="รหัสสินค้า" />
-                                  <TableColumn fx:id="f_nameProduct" prefWidth="181.8888702392578" text="ชื่อสินค้า" />
+                                  <TableColumn fx:id="f_idProduct" prefWidth="165.5999984741211" text="รหัสสินค้า" />
+                                  <TableColumn fx:id="f_nameProduct" prefWidth="192.0" text="ชื่อสินค้า" />
                                 </columns>
                               </TableView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="427.0" prefWidth="236.0" style="-fx-background-color: CDF2FF;">
+                        <AnchorPane prefHeight="427.0" prefWidth="303.0" style="-fx-background-color: CDF2FF;">
                            <children>
                               <Label layoutX="16.0" layoutY="68.0" text="ประเภท" textFill="#2e64a2">
                                  <font>
@@ -42,40 +42,40 @@
                               <ChoiceBox fx:id="f_type" layoutX="41.0" layoutY="115.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="427.0" prefWidth="260.0" style="-fx-background-color: white;">
+                        <AnchorPane prefHeight="427.0" prefWidth="369.0" style="-fx-background-color: white;">
                            <children>
-                              <Label layoutX="12.0" layoutY="208.0" text="ราคาต่อหน่วย" textFill="#2e64a2">
+                              <Label layoutX="33.0" layoutY="211.0" text="ราคาต่อหน่วย" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="11.0" layoutY="111.0" text="รหัสสินค้า" textFill="#2e64a2">
+                              <Label layoutX="32.0" layoutY="114.0" text="รหัสสินค้า" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="18.0" text="ชื่อสินค้า" textFill="#2e64a2">
+                              <Label layoutX="31.0" layoutY="21.0" text="ชื่อสินค้า" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="f_p_name" layoutX="10.0" layoutY="53.0" prefHeight="25.0" prefWidth="230.0">
+                              <TextField fx:id="f_p_name" layoutX="31.0" layoutY="56.0" prefHeight="25.0" prefWidth="230.0">
                                  <font>
                                     <Font name="TH SarabunPSK" size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="f_p_price" layoutX="11.0" layoutY="244.0" prefHeight="25.0" prefWidth="230.0">
+                              <TextField fx:id="f_p_price" layoutX="32.0" layoutY="247.0" prefHeight="25.0" prefWidth="230.0">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="f_p_id" layoutX="11.0" layoutY="149.0" prefHeight="25.0" prefWidth="230.0">
+                              <TextField fx:id="f_p_id" layoutX="32.0" layoutY="152.0" prefHeight="25.0" prefWidth="230.0">
                                  <font>
                                     <Font name="TH SarabunPSK" size="24.0" />
                                  </font>
                               </TextField>
-                              <DatePicker fx:id="f_p_save_date" layoutX="72.0" layoutY="333.0" />
-                              <Label layoutX="16.0" layoutY="326.0" text="วันที่" textFill="#2e64a2">
+                              <DatePicker fx:id="f_p_save_date" disable="true" layoutX="93.0" layoutY="336.0" />
+                              <Label layoutX="37.0" layoutY="329.0" text="วันที่" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
@@ -88,31 +88,31 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Label layoutX="348.0" layoutY="13.0" text="เพิ่มสินค้า" textFill="#fbff00">
+      <Label layoutX="433.0" layoutY="8.0" text="เพิ่มสินค้า" textFill="#fbff00">
          <font>
             <Font name="TH SarabunPSK Bold" size="64.0" />
          </font>
       </Label>
-      <Button fx:id="submit_btn" layoutX="54.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnSubmit" style="-fx-background-color: white;" text="ยืนยันการเพิ่มสินค้าทั้งหมด" textFill="#2e64a2">
+      <Button fx:id="submit_btn" layoutX="153.0" layoutY="527.0" mnemonicParsing="false" onAction="#btnSubmit" style="-fx-background-color: white;" text="ยืนยันการเพิ่มสินค้าทั้งหมด" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="back_btn" layoutX="16.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: #2e64a2;">
+      <Button fx:id="back_btn" layoutX="28.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnBack" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #2e64a2;">
          <graphic>
-            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Picture/previousw.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="submit_btn1" layoutX="725.0" layoutY="525.0" mnemonicParsing="false" onAction="#btnAddProduct" style="-fx-background-color: white;" text="เพิ่มสินค้า" textFill="#2e64a2">
+      <Button fx:id="submit_btn1" layoutX="872.0" layoutY="527.0" mnemonicParsing="false" onAction="#btnAddProduct" style="-fx-background-color: white;" text="เพิ่มสินค้า" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnDeleteProduct" layoutX="544.0" layoutY="527.0" mnemonicParsing="false" onAction="#btnDeleteProduct" style="-fx-background-color: white;" text="ลบสินค้าที่เลือก" textFill="#d40000">
+      <Button fx:id="btnDeleteProduct" layoutX="691.0" layoutY="527.0" mnemonicParsing="false" onAction="#btnDeleteProduct" style="-fx-background-color: white;" text="ลบสินค้าที่เลือก" textFill="#d40000">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>

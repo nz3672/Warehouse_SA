@@ -18,6 +18,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import tool.checkString;
+import tool.checkStringClass;
 import tool.setNotic;
 import tool.setNoticClass;
 
@@ -44,9 +46,11 @@ public class AddTypeController {
     private Type type;
     private Connection connection;
     UserID user;
+    checkString checkString;
 
     @FXML
     public void initialize(){
+        checkString = new checkStringClass();
         ConnectionHandler connectionHandler = new ConnectionHandler();
         connection = connectionHandler.getConnection();
 
@@ -77,7 +81,7 @@ public class AddTypeController {
         checkP_id.setString(1, idType.getText());
         checkP_id.setString(2, nameType.getText());
         ResultSet rs = checkP_id.executeQuery();
-        if (!idType.getText().equals(" ") || !nameType.getText().equals(" ")) {
+        if (checkString.checkString(nameType.getText())) {
             if (!rs.next()) {
                 PreparedStatement addintotable = connection.prepareStatement("INSERT INTO type (t_name) VALUES (?)");
                 addintotable.setString(1, nameType.getText());
@@ -91,7 +95,7 @@ public class AddTypeController {
             }
         } else {
             setNotic setNotic = new setNoticClass();
-            setNotic.showNotic("กรุณากรอกข้อมูลให้ครบถ้วน2", "Error");
+            setNotic.showNotic("กรุณากรอกข้อมูลให้ถูกต้อง", "Error");
         }
 
     }
@@ -100,7 +104,7 @@ public class AddTypeController {
         Button btn = (Button) actionEvent.getSource();
         Stage stage = (Stage) btn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
-        stage.setScene(new Scene((Parent)fxmlLoader.load(),900,600));
+        stage.setScene(new Scene((Parent)fxmlLoader.load(),1100,600));
         HomeController controller = fxmlLoader.getController();
         controller.setUser(user);
         stage.close();

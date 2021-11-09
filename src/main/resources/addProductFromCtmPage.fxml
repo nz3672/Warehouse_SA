@@ -9,53 +9,59 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddProductFromCtmController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: #2e64a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddProductFromCtmController">
    <children>
-      <ScrollPane layoutX="67.0" layoutY="86.0" prefHeight="430.0" prefWidth="780.0">
+      <ScrollPane layoutX="94.0" layoutY="84.0" prefHeight="430.0" prefWidth="887.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="777.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="881.0">
                <children>
                   <HBox prefHeight="427.0" prefWidth="777.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <AnchorPane prefHeight="427.0" prefWidth="515.0" style="-fx-background-color: white;">
+                        <AnchorPane prefHeight="427.0" prefWidth="610.0" style="-fx-background-color: white;">
                            <children>
-                              <Label layoutX="35.0" layoutY="43.0" text="ชื่อสินค้า" textFill="#2e64a2">
+                              <Label layoutX="121.0" layoutY="80.0" text="ชื่อสินค้า" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox fx:id="p_l_name" layoutX="135.0" layoutY="43.0" prefHeight="38.0" prefWidth="220.0" />
-                              <Label layoutX="38.0" layoutY="128.0" text="รหัสสินค้า" textFill="#2e64a2">
+                              <ChoiceBox fx:id="p_l_name" layoutX="228.0" layoutY="83.0" prefHeight="38.0" prefWidth="258.0" />
+                              <Label layoutX="116.0" layoutY="168.0" text="รหัสสินค้า" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="p_l_id" layoutX="148.0" layoutY="129.0">
+                              <Label fx:id="p_l_id" layoutX="232.0" layoutY="147.0">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="40.0" layoutY="193.0" text="จำนวน" textFill="#2e64a2">
+                              <Label layoutX="130.0" layoutY="227.0" text="จำนวน" textFill="#2e64a2">
                                  <font>
                                     <Font name="TH SarabunPSK Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="p_l_amount" layoutX="147.0" layoutY="204.0" />
+                              <TextField fx:id="p_l_amount" layoutX="228.0" layoutY="227.0" prefHeight="38.0" prefWidth="258.0" />
+                              <Label layoutX="130.0" layoutY="304.0" text="ราคา" textFill="#2e64a2">
+                                 <font>
+                                    <Font name="TH SarabunPSK Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="p_l_price" layoutX="228.0" layoutY="304.0" prefHeight="38.0" prefWidth="258.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="427.0" prefWidth="260.0" style="-fx-background-color: white;" />
+                        <AnchorPane prefHeight="427.0" prefWidth="356.0" style="-fx-background-color: white;" />
                      </children>
                   </HBox>
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Label layoutX="340.0" layoutY="11.0" text="เพิ่มสินค้า" textFill="#fbff00">
+      <Label layoutX="437.0" layoutY="7.0" text="เพิ่มสินค้า" textFill="#fbff00">
          <font>
             <Font name="TH SarabunPSK Bold" size="64.0" />
          </font>
       </Label>
-      <Button fx:id="btnSubToLot" layoutX="398.0" layoutY="526.0" mnemonicParsing="false" onAction="#btnSubmit" style="-fx-background-color: white;" text="เพิ่ม" textFill="#2e64a2">
+      <Button fx:id="btnSubToLot" layoutX="478.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnSubmit" prefHeight="51.0" prefWidth="149.0" style="-fx-background-color: white;" text="เพิ่ม" textFill="#2e64a2">
          <font>
             <Font name="TH SarabunPSK Bold" size="24.0" />
          </font>

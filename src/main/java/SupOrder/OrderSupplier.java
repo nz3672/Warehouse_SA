@@ -5,6 +5,7 @@ import Connection.ConnectionHandler;
 import Objects.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.CheckBox;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +18,9 @@ public class OrderSupplier {
     private Supplier supplier;
     private String dateRecieve;
     private String dateSave;
+    private String Employee_name;
+    private String status;
+    private CheckBox checkBox;
 
     public void setDateRecieve(String dateRecieve) {
         this.dateRecieve = dateRecieve;
@@ -30,11 +34,14 @@ public class OrderSupplier {
         this.dateSave = dateSave;
     }
 
-    public OrderSupplier(String lotId, Supplier supplier, String dateRecieve, String dateSave) throws SQLException {
+    public OrderSupplier(String lotId, Supplier supplier, String employee_name, String dateRecieve, String dateSave, String status) throws SQLException {
         this.Id = lotId;
         this.supplier = supplier;
+        this.Employee_name = employee_name;
         this.dateRecieve = dateRecieve;
         this.dateSave = dateSave;
+        this.status = status;
+        this.checkBox = new CheckBox();
     }
     public String getLotId() {
         return Id;
@@ -50,5 +57,21 @@ public class OrderSupplier {
 
     public void setLotId(String lotId) {
         this.Id = lotId;
+    }
+
+    public void setEmployee_name(String employee_name) {
+        Employee_name = employee_name;
+    }
+
+    public String getEmployee_name() {
+        return Employee_name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public CheckBox getCheckBox() {
+        return checkBox;
     }
 }

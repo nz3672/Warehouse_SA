@@ -6,7 +6,7 @@ public class Product {
     private double price;
     private String type;
     private Warehouse Warehouse;
-    private int amount;
+    private int quantity;
     private String saveDate;
 
     public Product(String productId, String name, double price, String type, Warehouse Warehouse, String saveDate) {
@@ -18,29 +18,37 @@ public class Product {
         this.saveDate = saveDate;
     }
 
-    public Product(String productId, int amount, String name, Warehouse Warehouse, String type, double price, String saveDate) {
+    public Product(String productId, int quantity, String name, Warehouse Warehouse, String type, double price, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.price = price;
         this.type = type;
         this.Warehouse = Warehouse;
         this.saveDate = saveDate;
-        this.amount = amount;
+        this.quantity = quantity;
     }
 
-    public Product(String productId, String name, double price, String type, int amount, String saveDate) {
+    public Product(String productId, String name, double price, String type, int quantity, String saveDate) {
         this.productId = productId;
         this.name = name;
         this.price = price;
         this.type = type;
-        this.amount = amount;
+        this.quantity = quantity;
         this.saveDate = saveDate;
     }
 
-    public Product(String productId, String name, int amount, String saveDate) {
+    public Product(String productId, String name, int quantity, String saveDate) {
         this.productId = productId;
         this.name = name;
-        this.amount = amount;
+        this.quantity = quantity;
+        this.saveDate = saveDate;
+    }
+
+    public Product(String productId, String name, double price, String type, String saveDate) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.type = type;
         this.saveDate = saveDate;
     }
 
@@ -64,8 +72,8 @@ public class Product {
         this.Warehouse = warehouse;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getProductId() {
@@ -88,8 +96,8 @@ public class Product {
         return Warehouse;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getQuantity() {
+        return quantity;
     }
 
     public String getSaveDate() {

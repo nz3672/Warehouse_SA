@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import tool.checkString;
+import tool.checkStringClass;
 import tool.setNoticClass;
 
 import java.io.IOException;
@@ -27,15 +29,18 @@ public class AddProductFromCtmController {
     @FXML
     Label p_l_id;
     @FXML
-    TextField p_l_amount;
+    TextField p_l_amount, p_l_price;
 
     ObservableList<String> productNamelist;
+    tool.checkString checkString;
     Product product;
+    private int quantity_limit;
 
     @FXML
     public void initialize(){
         Platform.runLater(new Runnable() {
             public void run() {
+                checkString = new checkStringClass();
                 ConnectionHandler connectionHandler = new ConnectionHandler();
                 Connection connection = connectionHandler.getConnection();
                 productNamelist = FXCollections.observableArrayList();
@@ -63,6 +68,7 @@ public class AddProductFromCtmController {
                                 ResultSet rec = preparedStatement.executeQuery();
                                 if (rec.next()) {
                                     p_l_id.setText(rec.getString(1));
+                                    quantity_limit = Integer.parseInt(rec.getString(4));
                                 }
                             } catch (SQLException e) {
                                 e.printStackTrace();
@@ -74,8 +80,9 @@ public class AddProductFromCtmController {
     }
 
     public void btnSubmit(ActionEvent actionEvent) throws IOException {
-        if (p_l_name.getValue() != null && !p_l_amount.getText().equals("")) {
+        if (p_l_name.getValue() != null && checkString.checkNum(p_l_amount.getText()) && checkString.checkNum(p_l_price.getText()) && quantity_limit >= Integer.parseInt(p_l_amount.getText())) {
         product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()), "date");
+        product.setPrice(Double.parseDouble(p_l_price.getText()));
         Button btnSubToLot = (Button) actionEvent.getSource();
         Stage stage = (Stage) btnSubToLot.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/AddOrderCtmPage.fxml"));
@@ -83,9 +90,13 @@ public class AddProductFromCtmController {
         AddOrderCtmController addOrderCtmController = fxmlLoader.getController();
         addOrderCtmController.setProduct(product); // เอาไปปรอ้นในเทเบิ้ลของหน้านี้
         stage.close(); }
-        else {
+        else if (quantity_limit < Integer.parseInt(p_l_amount.getText())){
             setNoticClass setNoticClass = new setNoticClass();
-            setNoticClass.showNotic("กรุณากรอกข้อมูลสินค้าให้ครบถ้วน","Error");
+            setNoticClass.showNotic("สินค้าในคลังมีปริมาณต่ำกว่าสินค้าที่จะขาย","Error");
+        } else {
+            setNoticClass setNoticClass = new setNoticClass();
+            setNoticClass.showNotic("กรุณากรอกข้อมูลให้ถูกต้อง","Error");
+
         }
     }
 

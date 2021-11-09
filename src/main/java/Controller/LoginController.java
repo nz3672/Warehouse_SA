@@ -17,6 +17,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.io.IOException;
 
 public class LoginController {
@@ -40,15 +42,16 @@ public class LoginController {
         if (!rec.next()) {
             showLoginResultDialog("Wrong username or password",null,"Login failed");
         } else {
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
                 checkpwd = BCrypt.checkpw(f_em_password.getText(), rec.getString(4));
                 System.out.println(checkpwd);
-                if (checkpwd) {
+                if (bCryptPasswordEncoder.matches(f_em_password.getText(), rec.getString(4))) {
                     showLoginResultDialog("Login successful!", null, "Successful");
                     userID = new UserID(rec.getString(1), rec.getString(2), rec.getString(3), rec.getString(4), rec.getString(5));
                     Button btn = (Button) actionEvent.getSource();
                     Stage stage = (Stage) btn.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/homePage.fxml"));
-                    stage.setScene(new Scene((Parent) fxmlLoader.load(), 900, 600));
+                    stage.setScene(new Scene((Parent) fxmlLoader.load(), 1100, 600));
                     HomeController controller = fxmlLoader.getController();
                     controller.setUser(userID);
                     stage.show();
@@ -69,7 +72,7 @@ public class LoginController {
     public void btnForRegis(ActionEvent actionEvent) throws IOException { // going to register page
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/registerPage.fxml"));
-        stage.setScene(new Scene((Parent) fxmlLoader.load(),900,600));
+        stage.setScene(new Scene((Parent) fxmlLoader.load(),1100,600));
         RegisterController registerController = fxmlLoader.getController();
         stage.show();
     }

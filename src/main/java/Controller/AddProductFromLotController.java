@@ -13,6 +13,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.springframework.util.StringUtils;
+import tool.checkString;
+import tool.checkStringClass;
 import tool.setNoticClass;
 
 import java.io.IOException;
@@ -22,25 +25,28 @@ import java.util.ArrayList;
 public class AddProductFromLotController {
 
     @FXML
-    ChoiceBox p_l_name,chooseWh;
+    ChoiceBox p_l_name, chooseWh;
     @FXML
     Label p_l_id;
     @FXML
     DatePicker p_l_save_date;
     @FXML
-    TextField p_l_amount;
-    @FXML CheckBox f_wh, f_new_wh;
+    TextField p_l_amount, p_l_price;
+    @FXML
+    CheckBox f_wh, f_new_wh;
 
-    ObservableList<String> productNamelist ;
+    ObservableList<String> productNamelist;
     ObservableList<String> warehouseList = FXCollections.observableArrayList();
     Product product;
     Warehouse warehouse;
     WarehouseList whList;
+    checkString checkString;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         Platform.runLater(new Runnable() {
             public void run() {
+                checkString = new checkStringClass();
                 ConnectionHandler connectionHandler = new ConnectionHandler();
                 Connection connection = connectionHandler.getConnection();
                 productNamelist = FXCollections.observableArrayList();
@@ -81,6 +87,9 @@ public class AddProductFromLotController {
                                 ResultSet rec = preparedStatement.executeQuery();
                                 if (rec.next()) {
                                     p_l_id.setText(rec.getString(1));
+                                    preparedStatement = connection.prepareStatement("SELECT pd_id FROM warehouselist WHERE pd_id = \"" + rec.getString(1) + "\"");
+                                    ResultSet checkwhere = preparedStatement.executeQuery();
+                                    f_wh.setDisable(!checkwhere.next());
                                 }
                             } catch (SQLException e) {
                                 e.printStackTrace();
@@ -92,29 +101,33 @@ public class AddProductFromLotController {
     }
 
     public void btnSubmit(ActionEvent actionEvent) throws IOException, SQLException {
-        if (p_l_name.getValue() != null && !p_l_amount.getText().equals("") && ((f_new_wh.isSelected() && chooseWh.getValue() != null) || f_wh.isSelected())) {
-        ConnectionHandler connectionHandler = new ConnectionHandler();
-        Connection connection = connectionHandler.getConnection();
-            product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()),"date");
-        if (f_new_wh.isSelected()){
-            String[] warehouseID = chooseWh.getValue().toString().split(" ");// extract warehouse details from warehouseobservable list
-            String[] warehouseDetails = warehouseID[1].split(",");
-            Warehouse warehouse = new Warehouse(warehouseDetails[0], warehouseDetails[1], warehouseDetails[2],warehouseDetails[3]);
-            warehouse.setId(warehouseID[0]);
-           whList = new WarehouseList(warehouse, product);
+        if (p_l_name.getValue() != null && checkString.checkNum(p_l_price.getText()) && checkString.checkNum(p_l_amount.getText()) && ((f_new_wh.isSelected() && chooseWh.getValue() != null) || f_wh.isSelected())) {
+            ConnectionHandler connectionHandler = new ConnectionHandler();
+            Connection connection = connectionHandler.getConnection();
+            product = new Product(p_l_id.getText(), p_l_name.getValue().toString(), Integer.parseInt(p_l_amount.getText()), "date");
+            product.setPrice(Double.parseDouble(p_l_price.getText()));
+            if (f_new_wh.isSelected()) {
+                String[] warehouseID = chooseWh.getValue().toString().split(" ");// extract warehouse details from warehouseobservable list
+                String[] warehouseDetails = warehouseID[1].split(",");
+                Warehouse warehouse = new Warehouse(warehouseDetails[0], warehouseDetails[1], warehouseDetails[2], warehouseDetails[3]);
+                warehouse.setId(warehouseID[0]);
+                System.out.println(warehouseID[0]);
+                whList = new WarehouseList(warehouse, product);
+            }
+            Button btnSubToLot = (Button) actionEvent.getSource();
+            Stage stage = (Stage) btnSubToLot.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/AddOrderSupPage.fxml"));
+            fxmlLoader.load();
+            AddOrderSupController addOrderSupController = fxmlLoader.getController();
+            addOrderSupController.setProduct(product);// เอาไปปรอ้นในเทเบิ้ลของหน้านี้
+            if (f_new_wh.isSelected()) {
+                addOrderSupController.setWarehouseList(whList);
+            }
+            stage.close();
+        } else {
+            setNoticClass setNoticClass = new setNoticClass();
+            setNoticClass.showNotic("กรุณากรอกข้อมูลให้ถูกต้อง", "Error");
         }
-        Button btnSubToLot = (Button) actionEvent.getSource();
-        Stage stage = (Stage) btnSubToLot.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/AddOrderSupPage.fxml"));
-        fxmlLoader.load();
-        AddOrderSupController addOrderSupController = fxmlLoader.getController();
-        addOrderSupController.setProduct(product);// เอาไปปรอ้นในเทเบิ้ลของหน้านี้
-        if (f_new_wh.isSelected()) {addOrderSupController.setWarehouseList(whList); }
-        stage.close();
-    } else {
-        setNoticClass setNoticClass = new setNoticClass();
-        setNoticClass.showNotic("กรุณากรอกข้อมูลสินค้าให้ครบถ้วน","Error");
-    }
     }
 
     public void setProduct(Product product) {
